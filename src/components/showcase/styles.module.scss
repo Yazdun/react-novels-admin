@@ -1,0 +1,54 @@
+@import "../../scss/essentials";
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 10px;
+  padding: 10px;
+  font-size: 1.3rem;
+  left: 10px;
+  font-weight: 500;
+
+  svg {
+    margin-right: toRem(5);
+    transition: 0.3s ease;
+  }
+  &:hover {
+    cursor: pointer;
+
+    svg {
+      transform: translateX(-3px);
+    }
+  }
+}
+
+.show {
+  animation: 0.3s slideInFromLeft;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: scroll;
+}
+
+.showcase {
+  position: fixed;
+  width: 100%;
+  z-index: $zindex--showcase;
+  background-color: white;
+}
+
+.hide {
+  top: 0;
+  left: -150%;
+  animation: 0.3s slideOutToLeft;
+}
+
+.children {
+  margin: $margin--high auto;
+}
+
+.noneDisplay {
+  display: none;
+}

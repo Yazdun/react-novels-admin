@@ -2,10 +2,12 @@ import "./scss/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./context/auth";
 import { PrivateRoute, routes } from "./routes";
+import { Topbar } from "./components";
 
 function App() {
   return (
     <AuthProvider>
+      <Topbar />
       <Switch>
         {routes.map((route, item) =>
           route.private ? (

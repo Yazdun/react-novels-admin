@@ -4,6 +4,10 @@
 
 @import "./functions";
 
+// background colors
+$clr--bg--primary: white;
+$clr--bg--secondary: white;
+
 // contrast colors
 $clr--contrast--primary: #212529;
 $clr--contrast--secondary: #4a4e69;
@@ -49,7 +53,9 @@ $border--radius: 5px;
 // fonts
 $font-main: "Poppins", sans-serif;
 // z index
-$zindex--showcase: 998;
 $zindex--modal: 1000;
-$zindex--modal--background: 999;
-$zindex--alert: 997;
+$zindex--sidebar: 999;
+$zindex--modal--background: 998;
+$zindex--showcase: 997;
+$zindex--alert: 996;
+$zindex--navbar: 995;

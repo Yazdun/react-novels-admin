@@ -30,9 +30,13 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuthContext = () => {
-  return useContext(AuthProviderContext);
+  const value = useContext(AuthProviderContext);
+  if (value === undefined) throw new Error();
+  return value;
 };
 
 export const useAuthActions = () => {
-  return useContext(AuthProviderContextDispatcher);
+  const value = useContext(AuthProviderContextDispatcher);
+  if (value === undefined) throw new Error();
+  return value;
 };

@@ -1,0 +1,26 @@
+@import "../../scss/essentials";
+
+.nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid $clr--border;
+  z-index: $zindex--navbar;
+}
+
+.customContainer {
+  padding: toRem(10) toRem(20);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+}
+
+.btn {
+  color: $clr--danger--secondary;
+  svg {
+    font-size: 2rem;
+  }
+}

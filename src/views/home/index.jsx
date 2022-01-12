@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <Container>
-      <h1>Homepage</h1>
+      <h1>Landing page will be built here ...</h1>
       <Link to="/login">login</Link>
     </Container>
   );

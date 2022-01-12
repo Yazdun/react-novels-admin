@@ -1,0 +1,106 @@
+@import "../../../scss/essentials";
+
+@include breakpoint-up(laptop) {
+  .sidebar,
+  .btn,
+  .background {
+    display: none;
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  border-right: 1px solid $clr--border;
+  background-color: white;
+  height: 100vh;
+  background-color: $clr--bg--primary;
+  overflow-y: scroll;
+  z-index: $zindex--sidebar;
+
+  li {
+    width: 100%;
+    transition: 0.2s ease;
+    text-transform: capitalize;
+  }
+
+  li:first-of-type {
+    margin-top: 0;
+  }
+
+  li:hover {
+    background-color: $clr--bg--secondary;
+    cursor: pointer;
+  }
+  li svg {
+    margin-right: toRem(5);
+  }
+
+  li a {
+    display: flex;
+    align-items: flex-start;
+    padding: toRem(20) toRem(30);
+  }
+
+  .back {
+    display: flex;
+    align-items: center;
+    padding: toRem(20) toRem(30);
+  }
+
+  &::before {
+    outline: 100px solid black;
+  }
+
+  @include breakpoint-up(laptop) {
+    display: none;
+  }
+}
+
+.btn {
+  svg {
+    font-size: 2rem;
+  }
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex--modal--background;
+  backdrop-filter: blur(1rem);
+}
+
+.close {
+  left: -100%;
+  animation: 0.3s toLeft;
+}
+.open {
+  left: 0;
+  opacity: 1;
+  animation: 0.3s fromLeft;
+}
+.untouched {
+  display: none;
+}
+
+@keyframes fromLeft {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -100%;
+  }
+}

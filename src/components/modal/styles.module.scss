@@ -1,0 +1,59 @@
+@import "../../scss/essentials";
+
+.modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  z-index: $zindex--modal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: $border--radius;
+  max-width: toRem(500);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  font-size: 1.3rem;
+  left: 15px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+  }
+}
+
+.background {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex--modal--background;
+  backdrop-filter: blur(1rem);
+}
+
+.show {
+  top: 50%;
+  left: 50%;
+  animation: 0.3s appear;
+}
+
+.hide {
+  top: 50%;
+  left: -150%;
+  animation: 0.15s disappear;
+}
+
+.children {
+  margin: $margin--mid 0;
+  padding: $padding--low;
+}
+
+.noneDisplay {
+  display: none;
+}

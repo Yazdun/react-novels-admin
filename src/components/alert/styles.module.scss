@@ -1,0 +1,80 @@
+@import "../../scss/essentials";
+
+.alert {
+  color: white;
+  padding: toRem(10) toRem(20);
+  border-radius: $border--radius;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: toRem(984);
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+.float {
+  position: fixed;
+  bottom: toRem(70);
+  left: 50%;
+  left: toRem(20);
+  right: toRem(20);
+  z-index: $zindex--alert;
+  margin: auto;
+}
+
+.inline {
+  margin: $margin--low 0;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+
+  p {
+    line-height: 1.5rem;
+  }
+}
+
+.show {
+  transform: scaleY(1);
+  transition: 0.15s ease-in-out;
+}
+
+.hide {
+  transform: scaleY(0);
+  transition: 0.1s ease-in-out;
+}
+
+.danger {
+  background-color: $clr--danger--secondary;
+  // border: 2px solid $clr--danger--primary;
+  // background-image: linear-gradient(
+  //   to left,
+  //   $clr--danger--secondary,
+  //   $clr--danger--primary
+  // );
+}
+
+.success {
+  background-color: $clr--success--secondary;
+}
+
+.close {
+  margin-left: toRem(10);
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+    cursor: pointer;
+  }
+}
+
+.dangerIcon {
+  margin-right: toRem(10);
+}
+
+.successIcon {
+  margin-right: toRem(10);
+}
