@@ -1,0 +1,20 @@
+@import "../../../scss/essentials", "./btnTxt", "./btnIcon";
+
+.hoverBackground {
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.2;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  left: 0;
+  transition: 0.18s ease-in-out;
+  z-index: 1;
+  @include breakpoint-up(laptop) {
+    transition: 0.3s ease-in-out;
+  }
+}
+
+.center {
+  margin: $margin--mid auto;
+}

@@ -1,0 +1,99 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  // background-color: $clr--bg--main;
+  font-family: $font-main;
+
+  // background-color: rgb(54, 54, 54);
+  // color: $clr--txt;
+}
+
+.sr-only {
+  position: absolute !important;
+  margin: -1px !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+hr {
+  border-width: 0 0 1px;
+  color: $clr--border;
+
+  border-image: linear-gradient(
+      90deg,
+      rgba($clr--border, 0),
+      rgba($clr--border, 1) 50%,
+      rgba($clr--border, 0) 100%
+    )
+    0 0 100%;
+  border-style: solid;
+  margin: $margin--low 0;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+  cursor: not-allowed;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  all: unset;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hide-for-touch {
+  @include breakpoint-down(laptop) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(laptop) {
+    display: none;
+  }
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

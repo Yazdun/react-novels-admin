@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+@import "./functions";
+
+// contrast colors
+$clr--contrast--primary: #212529;
+$clr--contrast--secondary: #4a4e69;
+
+// danger colors
+$clr--danger--primary: #bd1f36;
+$clr--danger--secondary: #e01e37;
+
+// active colors
+$clr--active--primary: #005085;
+$clr--active--secondary: #135ac5;
+
+// success colors
+$clr--success--primary: #14746f;
+$clr--success--secondary: #56ab91;
+
+// colors
+$clr--txt: #14213d;
+$clr--transparent: #9b9b9b;
+$clr--border: #ced4da;
+
+// box shadows
+$shadow--one: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+// paddings
+$padding--min: toRem(5);
+$padding--low: toRem(10);
+$padding--mid: toRem(20);
+$padding--high: toRem(40);
+
+// margins
+$margin--min: toRem(5);
+$margin--low: toRem(10);
+$margin--mid: toRem(20);
+$margin--high: toRem(40);
+// max widths
+$max-width-mobile: 375px;
+$max-width-tablet: 481px;
+$max-width-laptop: 581px;
+$max-width-desktop: 1024px;
+// border radius
+$border--radius: 5px;
+// fonts
+$font-main: "Poppins", sans-serif;
+// z index
+$zindex--showcase: 998;
+$zindex--modal: 1000;
+$zindex--modal--background: 999;
+$zindex--alert: 997;

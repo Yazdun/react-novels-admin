@@ -1,0 +1,8 @@
+@import "../../scss/essentials";
+
+.container {
+  width: 100%;
+  max-width: $max-width-desktop;
+  padding: toRem(20);
+  margin: auto;
+}

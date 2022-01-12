@@ -1,0 +1,93 @@
+.btnText {
+  border-radius: $border--radius;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  margin: $margin--mid 0;
+  overflow: hidden;
+  padding: toRem(15);
+  letter-spacing: 0.1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  position: relative;
+
+  svg {
+    margin-right: toRem(10);
+  }
+
+  svg,
+  p {
+    z-index: 2;
+  }
+
+  &:disabled {
+    background-color: #d8dee4;
+    box-shadow: none;
+
+    .hoverBackground {
+      display: none;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @include breakpoint-up(laptop) {
+    &:hover {
+      .hoverBackground {
+        left: 0;
+        transform: scaleX(1);
+      }
+    }
+
+    &:active {
+      transform: none;
+      .hoverBackground {
+        opacity: 0;
+        transition: 0.1s ease-in-out;
+      }
+    }
+  }
+}
+
+// btn text variations
+.btnText {
+  &.contrast {
+    background-image: linear-gradient(
+      to right bottom,
+      $clr--contrast--secondary,
+      $clr--contrast--primary
+    );
+
+    .hoverBackground {
+      background-color: rgb(101, 101, 245);
+    }
+  }
+
+  &.active {
+    background-image: linear-gradient(
+      to right bottom,
+      $clr--active--secondary,
+      $clr--active--primary
+    );
+  }
+
+  &.success {
+    background-image: linear-gradient(
+      to right bottom,
+      $clr--success--secondary,
+      $clr--success--primary
+    );
+  }
+
+  &.danger {
+    background-image: linear-gradient(
+      to right bottom,
+      $clr--danger--secondary,
+      $clr--danger--primary
+    );
+  }
+}

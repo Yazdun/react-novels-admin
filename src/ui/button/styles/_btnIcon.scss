@@ -1,0 +1,23 @@
+.btnIcon {
+  transition: 0.3s ease-in-out;
+  font-weight: 400;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+  &.contrast {
+    color: $clr--contrast--primary;
+  }
+
+  &.active {
+    color: $clr--active--primary;
+  }
+
+  &.success {
+    color: $clr--success--primary;
+  }
+
+  &.danger {
+    color: $clr--danger--primary;
+  }
+}

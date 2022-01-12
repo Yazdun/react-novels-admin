@@ -1,0 +1,115 @@
+@import "../../scss/essentials";
+
+.field {
+  position: relative;
+  padding: 15px 0 0;
+  margin: $margin--mid 0;
+}
+
+.textfield {
+  width: 100%;
+  border: 0;
+  border: 1px solid $clr--border;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $clr--txt;
+  padding: toRem(15) toRem(10);
+  background: transparent;
+  transition: border-color 0.2s;
+  font-weight: 400;
+  border-radius: $border--radius;
+  transition: 0.3s ease;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .label {
+    font-size: 1.3rem;
+    cursor: text;
+    left: toRem(10);
+    top: toRem(30);
+  }
+
+  &:focus {
+    font-weight: 400;
+    border: 1px solid $clr--txt;
+    border-radius: $border--radius;
+    box-shadow: $shadow--one;
+    animation: 0.6s sholop;
+
+    ~ .label {
+      position: absolute;
+      top: 6px;
+      padding: 0 toRem(10);
+
+      display: block;
+      transition: 0.2s;
+      font-size: 0.9rem;
+      color: $clr--txt;
+      font-weight: 400;
+    }
+  }
+
+  &:hover {
+    box-shadow: $shadow--one;
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: toRem(100);
+}
+
+.label {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  display: block;
+  transition: 0.2s;
+  font-size: 0.9rem;
+  color: $clr--transparent;
+  background-color: white;
+  padding: 0 toRem(10);
+  border-radius: $border--radius;
+}
+
+.fieldErr {
+  animation: 0.3s shaking;
+
+  .textfield {
+    border: 1px solid $clr--danger--secondary;
+
+    &:focus {
+      border: 1px solid $clr--danger--secondary;
+
+      ~ .label {
+        color: $clr--danger--secondary;
+      }
+    }
+  }
+
+  .label {
+    color: $clr--danger--secondary;
+  }
+}
+
+.err {
+  color: $clr--danger--secondary;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  margin: $margin--low 0;
+  svg {
+    margin-right: toRem(5);
+  }
+}
+
+@keyframes sholop {
+  0% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
