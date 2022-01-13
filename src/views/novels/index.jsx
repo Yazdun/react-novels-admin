@@ -5,7 +5,7 @@ import { Container } from "../../ui";
 export const Novels = () => {
   return (
     <Container>
-      <h1>Novel's management will be built here ...</h1>
+      <h1>Novel's management will be built here </h1>
     </Container>
   );
 };

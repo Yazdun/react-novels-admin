@@ -5,7 +5,7 @@ import { Container } from "../../ui";
 export const Authors = () => {
   return (
     <Container>
-      <h1>Author's management will be built here ...</h1>
+      <h1>Author's management will be built here</h1>
     </Container>
   );
 };

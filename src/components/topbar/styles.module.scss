@@ -6,6 +6,7 @@
   width: 100%;
   border-bottom: 1px solid $clr--border;
   z-index: $zindex--navbar;
+  background-color: $clr--bg--primary;
 }
 
 .customContainer {
@@ -15,12 +16,18 @@
   align-items: center;
 }
 
-.wrapper {
-}
-
 .btn {
   color: $clr--danger--secondary;
+  transition: 0.5s;
   svg {
     font-size: 2rem;
+  }
+
+  @include breakpoint-up(laptop) {
+    &:hover {
+      color: $clr--danger--primary;
+
+      transform: rotate(360deg);
+    }
   }
 }

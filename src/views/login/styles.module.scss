@@ -1,1 +1,23 @@
 @import "../../scss/essentials";
+
+.customContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.img {
+  display: none;
+
+  @include breakpoint-up(laptop) {
+    display: block;
+    width: 50%;
+  }
+}
+.form {
+  width: 100%;
+  @include breakpoint-up(laptop) {
+    width: 50%;
+    max-width: toRem(400);
+  }
+}

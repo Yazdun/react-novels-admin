@@ -6,7 +6,7 @@ import { useHistory, Redirect } from "react-router-dom";
 export const Dashboard = () => {
   return (
     <Container>
-      <h1>Dashboard will be built here ...</h1>
+      <h1>Dashboard will be built here</h1>
     </Container>
   );
 };

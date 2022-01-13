@@ -5,13 +5,23 @@
   justify-content: space-between;
   width: 100%;
   max-width: toRem(400);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
+  font-size: 0.7rem;
 
   li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  li a svg {
+    transition: 0.2s ease-in-out;
+  }
+
+  li a:hover {
+    svg {
+      transform: scale(1.15);
+    }
   }
 
   li svg {

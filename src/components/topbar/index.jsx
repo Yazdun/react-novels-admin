@@ -5,12 +5,20 @@ import { Sidebar } from "./sidebar";
 import classnames from "classnames";
 import { Navigation } from "./navigation";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { useAuthContext } from "../../context/auth";
 
 export const Topbar = () => {
   const logOut = () => {
     localStorage.clear("TOKEN");
-    window.location.href = "Login";
+    window.location.href = "/";
   };
+
+  const isLoggedIn = useAuthContext();
+
+  if (!isLoggedIn) {
+    return null;
+  }
+
   return (
     <div className={s.nav}>
       <Container customClass={s.customContainer}>

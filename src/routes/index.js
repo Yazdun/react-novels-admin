@@ -1,4 +1,4 @@
-import { Home, Authors, Dashboard, Novels, Login, Users } from "../views";
+import { Authors, Dashboard, Novels, Login, Users } from "../views";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 
@@ -26,15 +26,11 @@ export const routes = [
   {
     exact: true,
     path: "/",
-    component: Home,
-  },
-  {
-    path: "/login",
     component: Login,
   },
 ];
 
 export const PrivateRoute = (props) => {
   const isLoggedIn = useAuthContext();
-  return isLoggedIn ? <Route {...props} /> : <Redirect to="/login" />;
+  return isLoggedIn ? <Route {...props} /> : <Redirect to="/" />;
 };
