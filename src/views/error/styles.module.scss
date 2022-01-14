@@ -1,0 +1,14 @@
+@import "../../scss/essentials";
+
+.img {
+  width: 100%;
+  max-width: toRem(250);
+}
+
+.customContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  justify-content: center;
+}

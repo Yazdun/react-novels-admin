@@ -1,0 +1,61 @@
+@import "../../scss/essentials";
+
+.heading {
+  line-height: 3rem;
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.big {
+  font-size: 3rem;
+}
+
+.small {
+  font-size: 1.5rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.thin {
+  font-weight: 300;
+}
+.secondary {
+  color: $clr--txt--secondary;
+}
+
+.danger {
+  color: $clr--danger--secondary;
+}
+
+.success {
+  color: $clr--success--primary;
+}
+
+.active {
+  color: $clr--active--primary;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.marginMin {
+  margin: $margin--min 0;
+}
+
+.marginLow {
+  margin: $margin--low 0;
+}
+
+.marginMid {
+  margin: $margin--mid 0;
+}
+
+.marginHigh {
+  margin: $margin--high 0;
+}

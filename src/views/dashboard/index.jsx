@@ -1,12 +1,11 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
-import { Container, Button } from "../../ui";
-import { useHistory, Redirect } from "react-router-dom";
+import { Container, Button, Heading } from "../../ui";
 
 export const Dashboard = () => {
   return (
     <Container>
-      <h1>Dashboard will be built here</h1>
+      <Heading center>Dashboard will be built here</Heading>
     </Container>
   );
 };

@@ -1,11 +1,11 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
-import { Container } from "../../ui";
+import { Container, Heading } from "../../ui";
 
 export const Authors = () => {
   return (
     <Container>
-      <h1>Author's management will be built here</h1>
+      <Heading center>Author's management will be built here</Heading>
     </Container>
   );
 };

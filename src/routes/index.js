@@ -1,24 +1,28 @@
-import { Authors, Dashboard, Novels, Login, Users } from "../views";
+import { Authors, Dashboard, Novels, Login, Users, NotFound } from "../views";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 
 export const routes = [
   {
+    exact: true,
     path: "/dashboard",
     component: Dashboard,
     private: true,
   },
   {
+    exact: true,
     path: "/users",
     component: Users,
     private: true,
   },
   {
+    exact: true,
     path: "/novels",
     component: Novels,
     private: true,
   },
   {
+    exact: true,
     path: "/authors",
     component: Authors,
     private: true,
@@ -27,6 +31,10 @@ export const routes = [
     exact: true,
     path: "/",
     component: Login,
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ];
 

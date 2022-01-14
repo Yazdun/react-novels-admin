@@ -1,0 +1,40 @@
+@import "../../scss/essentials";
+
+.typography {
+  line-height: 2rem;
+  font-size: 1.3rem;
+}
+
+.big {
+  font-size: 2rem;
+}
+
+.mid {
+  font-size: 1.6rem;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.secondary {
+  color: $clr--txt--secondary;
+}
+
+.danger {
+  color: $clr--danger--secondary;
+}
+.success {
+  color: $clr--success--primary;
+}
+.active {
+  color: $clr--active--primary;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
