@@ -8,6 +8,7 @@ function App() {
   return (
     <AuthProvider>
       <Topbar />
+
       <Switch>
         {routes.map((route, item) =>
           route.private ? (
