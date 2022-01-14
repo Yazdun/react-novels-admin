@@ -11,11 +11,13 @@ export const Sidebar = ({ items }) => {
     open: false,
     close: false,
   });
+
   const openSidebar = () =>
     setStates({ untouched: false, close: false, open: true });
 
   const closeSidebar = () =>
     setStates({ untouched: false, close: true, open: false });
+
   const { untouched, open, close } = states;
   return (
     <>

@@ -23,11 +23,17 @@
     font-size: 2rem;
   }
 
+  &:active {
+    transform: scale(0.8);
+  }
+
   @include breakpoint-up(laptop) {
     &:hover {
-      color: $clr--danger--primary;
+      transform: translateX(5px);
+    }
 
-      transform: rotate(360deg);
+    &:active {
+      transform: none;
     }
   }
 }
