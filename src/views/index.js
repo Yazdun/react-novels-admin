@@ -3,6 +3,6 @@ export { Novels } from "./novels";
 export { Dashboard } from "./dashboard";
 export { Login } from "./login";
 export { Users } from "./users";
-export { NotFound } from "./error";
+export { Page404 } from "./page404";
 
 // export {  } from "./";

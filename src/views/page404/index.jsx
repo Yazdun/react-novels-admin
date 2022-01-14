@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { Container, Heading, Typography } from "../../ui";
 import { error_illustration } from "../../assets";
 
-export const NotFound = () => {
+export const Page404 = () => {
   return (
     <Container customClass={s.customContainer}>
       <img
@@ -11,11 +11,12 @@ export const NotFound = () => {
         src={error_illustration}
         alt="sad ghost illustration which represents error page"
       />
+
       <Heading bold marginMid>
         Oops !
       </Heading>
       <Typography secondary center>
-        This page is either deleted or doesn't exist
+        this content either doesn't exist or deleted
       </Typography>
     </Container>
   );

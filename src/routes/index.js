@@ -1,4 +1,4 @@
-import { Authors, Dashboard, Novels, Login, Users, NotFound } from "../views";
+import { Authors, Dashboard, Novels, Login, Users, Page404 } from "../views";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 
@@ -34,7 +34,7 @@ export const routes = [
   },
   {
     path: "*",
-    component: NotFound,
+    component: Page404,
   },
 ];
 
