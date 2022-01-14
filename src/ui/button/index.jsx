@@ -1,6 +1,7 @@
 import s from "./styles/styles.module.scss";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { Spinner } from "..";
 
 export const Button = ({
   active,
@@ -34,7 +35,8 @@ export const Button = ({
       {text ? (
         <>
           <div className={s.hoverBackground}></div>
-          {icon}
+          {disabled ? <Spinner small transparent /> : icon}
+
           <p>{text}</p>
         </>
       ) : (

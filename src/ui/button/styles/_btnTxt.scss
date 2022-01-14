@@ -87,4 +87,10 @@
       $clr--danger--primary
     );
   }
+
+  &:disabled {
+    background-image: none;
+    background-color: $clr--border;
+    box-shadow: none;
+  }
 }
