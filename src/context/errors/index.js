@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const ErrorStatusContext = React.createContext();
 
 // The top level component that will wrap our app's core features
-const ErrorHandler = ({ children }) => {
+export const ErrorHandler = ({ children }) => {
   const history = useHistory();
   const [errorStatusCode, setErrorStatusCode] = React.useState();
 
@@ -26,7 +26,7 @@ const ErrorHandler = ({ children }) => {
   // the children as normal
   const renderContent = () => {
     if (errorStatusCode === 404) {
-      return <h1>404</h1>;
+      return <h1>error</h1>;
     }
 
     // ... more HTTP codes handled here
@@ -52,4 +52,4 @@ const ErrorHandler = ({ children }) => {
 
 // A custom hook to quickly read the context's value. It's
 // only here to allow quick imports
-const useErrorStatus = () => React.useContext(ErrorStatusContext);
+export const useErrorStatus = () => React.useContext(ErrorStatusContext);
