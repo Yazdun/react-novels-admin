@@ -9,14 +9,14 @@ import { man_and_computer } from "../../assets";
 import { usePost } from "../../hooks/usePost";
 
 export const Login = () => {
-  const setToken = useAuthActions();
+  const { setToken } = useAuthActions();
   const history = useHistory();
   const isLogged = useAuthContext();
   const methods = useForm();
 
   const handleToken = (data) => {
     setToken(data.token);
-    history.push("/dashboard");
+    // history.push("/dashboard");
   };
 
   const { execute, serverErrors, loading } = usePost(

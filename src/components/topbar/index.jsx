@@ -2,16 +2,12 @@ import { Container } from "../../ui";
 import s from "./styles.module.scss";
 import { links } from "./links";
 import { Sidebar } from "./sidebar";
-import classnames from "classnames";
 import { Navigation } from "./navigation";
 import { RiLogoutCircleRLine } from "react-icons/ri";
-import { useAuthContext } from "../../context/auth";
+import { useAuthContext, useAuthActions } from "../../context/auth";
 
 export const Topbar = () => {
-  const logOut = () => {
-    localStorage.clear("TOKEN");
-    window.location.href = "/";
-  };
+  const { logOut } = useAuthActions();
 
   const isLoggedIn = useAuthContext();
 

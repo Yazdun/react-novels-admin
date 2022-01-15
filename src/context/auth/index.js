@@ -11,18 +11,23 @@ const initialState = () =>
   JSON.parse(localStorage.getItem(STORAGE_KEY.TOKEN) || false);
 
 export const AuthProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+  const [token, setToken] = useState(initialState);
+
+  const logOut = () => {
+    localStorage.clear("TOKEN");
+    window.location.href = "/";
+  };
 
   useEffect(() => {
-    if (state) {
-      const data = JSON.stringify(state);
+    if (token) {
+      const data = JSON.stringify(token);
       localStorage.setItem(STORAGE_KEY.TOKEN, data);
     }
-  }, [state]);
+  }, [token]);
 
   return (
-    <AuthProviderContext.Provider value={state}>
-      <AuthProviderContextDispatcher.Provider value={setState}>
+    <AuthProviderContext.Provider value={token}>
+      <AuthProviderContextDispatcher.Provider value={{ setToken, logOut }}>
         {children}
       </AuthProviderContextDispatcher.Provider>
     </AuthProviderContext.Provider>

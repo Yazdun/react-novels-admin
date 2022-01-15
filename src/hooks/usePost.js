@@ -4,13 +4,13 @@ import "../axios";
 import { useErrorStatus } from "../context/errors";
 
 export const usePost = (url, success_function) => {
-  const [serverErrors, setServerErrors] = useState([]);
+  // const [serverErrors, setServerErrors] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { setErrorStatusCode } = useErrorStatus();
+  const { errorHandler, serverErrors } = useErrorStatus();
 
   const execute = async (values) => {
     setLoading(true);
-    setServerErrors([]);
+    errorHandler(undefined, undefined);
 
     try {
       await axios
@@ -20,15 +20,8 @@ export const usePost = (url, success_function) => {
         .then((res) => success_function(res.data))
         .then(() => setLoading(false));
     } catch (error) {
-      console.log(error.response.status);
-      // setErrorStatusCode(error.response.status);
-      setErrorStatusCode(500);
+      errorHandler(error.response.status, error.response.data.msg.split(","));
 
-      const serverErrors = error.response.data.msg.split(",");
-      setServerErrors(serverErrors);
-      setTimeout(() => {
-        setServerErrors(false);
-      }, 5000);
       setLoading(false);
     }
   };
