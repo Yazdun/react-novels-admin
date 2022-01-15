@@ -16,7 +16,7 @@ export const Login = () => {
 
   const handleToken = (data) => {
     setToken(data.token);
-    // history.push("/dashboard");
+    history.push("/dashboard");
   };
 
   const { execute, serverErrors, loading } = usePost(

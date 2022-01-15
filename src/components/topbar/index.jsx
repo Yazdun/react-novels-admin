@@ -8,7 +8,6 @@ import { useAuthContext, useAuthActions } from "../../context/auth";
 
 export const Topbar = () => {
   const { logOut } = useAuthActions();
-
   const isLoggedIn = useAuthContext();
 
   if (!isLoggedIn) {
