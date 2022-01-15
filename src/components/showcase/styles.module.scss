@@ -24,7 +24,7 @@
 }
 
 .show {
-  animation: 0.3s slideInFromLeft;
+  animation: 0.3s showcaseAppear;
   top: 0px;
   right: 0px;
   bottom: 0px;
@@ -36,13 +36,13 @@
   position: fixed;
   width: 100%;
   z-index: $zindex--showcase;
-  background-color: white;
+  background-color: $clr--bg--primary;
 }
 
 .hide {
   top: 0;
   left: -150%;
-  animation: 0.3s slideOutToLeft;
+  animation: 0.3s showcaseDisappear;
 }
 
 .children {
@@ -51,4 +51,35 @@
 
 .noneDisplay {
   display: none;
+}
+
+@keyframes showcaseAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes showcaseDisappear {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
 }

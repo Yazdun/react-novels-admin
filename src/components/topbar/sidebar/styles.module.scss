@@ -11,9 +11,8 @@
   position: fixed;
   top: 0;
   border-right: 1px solid $clr--border;
-  background-color: white;
+  background-color: $clr--bg--secondary;
   height: 100vh;
-  background-color: $clr--bg--primary;
   overflow-y: scroll;
   z-index: $zindex--sidebar;
 

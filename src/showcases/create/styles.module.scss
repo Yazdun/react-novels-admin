@@ -1,0 +1,27 @@
+@import "../../scss/essentials";
+
+.wrapper {
+  @include breakpoint-up(desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.img {
+  display: none;
+
+  @include breakpoint-up(desktop) {
+    display: block;
+    width: 40%;
+    align-self: flex-end;
+    // max-width: toRem(400);
+  }
+}
+
+.form {
+  width: 100%;
+
+  @include breakpoint-up(desktop) {
+    width: 55%;
+  }
+}
