@@ -89,8 +89,9 @@
   }
 
   &:disabled {
-    background-image: none;
-    background-color: $clr--border;
+    // background-image: none;
+    // background-color: $clr--border;
     box-shadow: none;
+    opacity: 0.6;
   }
 }
