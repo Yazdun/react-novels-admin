@@ -34,6 +34,7 @@ export const Authors = () => {
         textfields={AuthorTextfields}
         title="Create new author"
         illustration={man_one}
+        refreshData={execute}
       />
     </Container>
   );

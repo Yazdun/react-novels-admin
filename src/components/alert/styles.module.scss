@@ -1,68 +1,49 @@
 @import "../../scss/essentials";
 
 .alert {
-  color: white;
-  padding: toRem(10) toRem(20);
+  color: black;
+  padding: toRem(20);
   border-radius: $border--radius;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: toRem(984);
+  flex-direction: column;
 
-  svg {
-    font-size: 1.5rem;
-  }
-}
-
-.float {
+  justify-content: center;
+  max-width: toRem(400);
   position: fixed;
   bottom: toRem(70);
-  left: 50%;
   left: toRem(20);
   right: toRem(20);
+  background-color: $clr--warn--primary;
   z-index: $zindex--alert;
   margin: auto;
-}
+  font-weight: 600;
+  .icon {
+    font-size: 5rem;
+    margin-bottom: toRem(20);
 
-.inline {
-  margin: $margin--low 0;
-}
+    animation: 1s ease-out 0s 1 bell;
+    animation-iteration-count: infinite;
 
-.content {
-  display: flex;
-  align-items: center;
-
-  p {
-    line-height: 1.5rem;
+    animation-delay: 0.3s;
   }
 }
 
 .show {
-  transform: scaleY(1);
-  transition: 0.15s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .hide {
-  transform: scaleY(0);
-  transition: 0.1s ease-in-out;
-}
-
-.danger {
-  background-color: $clr--danger--secondary;
-  // border: 2px solid $clr--danger--primary;
-  // background-image: linear-gradient(
-  //   to left,
-  //   $clr--danger--secondary,
-  //   $clr--danger--primary
-  // );
-}
-
-.success {
-  background-color: $clr--success--secondary;
+  // transform: transition(-150%);
+  bottom: toRem(-200);
+  transition: 0.3s ease-in-out;
 }
 
 .close {
-  margin-left: toRem(10);
+  position: absolute;
+  top: 15px;
+  font-size: 1.5rem;
+  right: 15px;
   transition: 0.3s ease;
 
   &:hover {
@@ -71,10 +52,24 @@
   }
 }
 
-.dangerIcon {
-  margin-right: toRem(10);
-}
+@keyframes bell {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  60% {
+    transform: rotate(-20deg);
+  }
+  80% {
+    transform: rotate(15deg);
+  }
 
-.successIcon {
-  margin-right: toRem(10);
+  100% {
+    transform: rotate(0);
+  }
 }

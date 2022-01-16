@@ -3,14 +3,21 @@ import { BsCheckLg } from "react-icons/bs";
 import { Button, Heading, RenderTextfields } from "../../ui";
 import { Showcase, ImageUploader, Alert } from "../../components";
 import { usePost } from "../../hooks/usePost";
-
+import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
 
-export const CreateShowcase = ({ textfields, title, url, illustration }) => {
+export const CreateShowcase = ({
+  textfields,
+  title,
+  url,
+  illustration,
+  refreshData,
+}) => {
   const methods = useForm();
 
   const [image, setImage] = useState();
+  const { showAlert } = useAlertContext();
 
   const onSubmit = (data) => {
     execute({ ...data, image });
@@ -18,6 +25,8 @@ export const CreateShowcase = ({ textfields, title, url, illustration }) => {
 
   const success_submit = () => {
     methods.reset();
+    refreshData();
+    showAlert("author has been submitted");
   };
   const { execute, serverErrors, loading, success } = usePost(
     "/admin/author/create",

@@ -1,48 +1,22 @@
 import s from "./styles.module.scss";
 import classNames from "classnames";
-import { FaCheck } from "react-icons/fa";
-import { RiAlarmWarningFill } from "react-icons/ri";
+import { useAlertContext } from "../../context/alert";
 import { CgClose } from "react-icons/cg";
-import PropTypes from "prop-types";
-import { useState } from "react";
+import { FaBell } from "react-icons/fa";
 
-export const Alert = ({ success, danger, show, message, float, inline }) => {
-  const [showAlert, setShowAlert] = useState(show);
-
+export const Alert = () => {
+  const { alert, hideAlert } = useAlertContext();
   return (
-    <div
-      className={classNames(
-        s.alert,
-        success && s.success,
-        danger && s.danger,
-        float && s.float,
-        inline && s.inline,
-        showAlert ? s.show : s.hide
-      )}
-    >
-      <div className={s.content}>
-        {danger ? (
-          <RiAlarmWarningFill className={s.dangerIcon} />
-        ) : (
-          <FaCheck className={s.successIcon} />
-        )}
-        <p>{message}</p>
-      </div>
+    <div className={classNames(s.alert, alert.show ? s.show : s.hide)}>
+      <FaBell className={s.icon} />
+      <p>{alert.content}</p>
+
       <CgClose
         className={s.close}
         onClick={() => {
-          setShowAlert(false);
+          hideAlert();
         }}
       />
     </div>
   );
-};
-
-Alert.propTypes = {
-  success: PropTypes.bool,
-  danger: PropTypes.bool,
-  show: PropTypes.bool,
-  message: PropTypes.string,
-  fixed: PropTypes.bool,
-  block: PropTypes.bool,
 };
