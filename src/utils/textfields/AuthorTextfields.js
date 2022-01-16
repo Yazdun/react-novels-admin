@@ -64,8 +64,8 @@ export const AuthorTextfields = [
         message: "author's bio is required",
       },
       minLength: {
-        value: 2,
-        message: "min length is 2 chars",
+        value: 10,
+        message: "min length is 10 chars",
       },
     },
   },

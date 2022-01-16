@@ -1,6 +1,6 @@
 import { Textfield } from "../textfield";
 import PropTypes from "prop-types";
-
+import s from "./styles.module.scss";
 export const RenderTextfields = ({ textfields }) => {
   return (
     <>

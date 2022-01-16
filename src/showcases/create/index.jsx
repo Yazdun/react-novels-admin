@@ -1,14 +1,18 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { BsCheckLg } from "react-icons/bs";
 import { Button, Heading, RenderTextfields } from "../../ui";
-import { Showcase } from "../../components";
+import { Showcase, ImageUploader } from "../../components";
 
 import s from "./styles.module.scss";
+import { useState } from "react";
 
 export const CreateShowcase = ({ textfields, title, url, illustration }) => {
   const methods = useForm();
+
+  const [image, setImage] = useState();
+
   const onSubmit = (data) => {
-    window.location.reload();
+    console.log({ ...data, image });
   };
 
   return (
@@ -21,6 +25,7 @@ export const CreateShowcase = ({ textfields, title, url, illustration }) => {
               {title}
             </Heading>
             <RenderTextfields textfields={textfields} />
+            <ImageUploader image={image} setImage={setImage} />
             <Button active center text="submit author" icon={<BsCheckLg />} />
           </form>
         </FormProvider>

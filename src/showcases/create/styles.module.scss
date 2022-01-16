@@ -13,6 +13,7 @@
   @include breakpoint-up(desktop) {
     display: block;
     width: 40%;
+    max-width: toRem(200);
     align-self: flex-end;
     // max-width: toRem(400);
   }

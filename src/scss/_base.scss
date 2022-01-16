@@ -80,6 +80,10 @@ a {
   &:hover {
     cursor: pointer;
   }
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 .hide-for-touch {

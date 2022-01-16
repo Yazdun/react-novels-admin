@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { columns } from "./columns";
 import { CreateShowcase } from "../../showcases";
 import { AuthorTextfields } from "../../utils";
-import { planet_one } from "../../assets/";
+import { man_one } from "../../assets/";
 
 export const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -33,7 +33,7 @@ export const Authors = () => {
       <CreateShowcase
         textfields={AuthorTextfields}
         title="Create new author"
-        illustration={planet_one}
+        illustration={man_one}
       />
     </Container>
   );
