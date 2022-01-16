@@ -1,7 +1,8 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { BsCheckLg } from "react-icons/bs";
 import { Button, Heading, RenderTextfields } from "../../ui";
-import { Showcase, ImageUploader } from "../../components";
+import { Showcase, ImageUploader, Alert } from "../../components";
+import { usePost } from "../../hooks/usePost";
 
 import s from "./styles.module.scss";
 import { useState } from "react";
@@ -12,8 +13,16 @@ export const CreateShowcase = ({ textfields, title, url, illustration }) => {
   const [image, setImage] = useState();
 
   const onSubmit = (data) => {
-    console.log({ ...data, image });
+    execute({ ...data, image });
   };
+
+  const success_submit = () => {
+    methods.reset();
+  };
+  const { execute, serverErrors, loading, success } = usePost(
+    "/admin/author/create",
+    success_submit
+  );
 
   return (
     <Showcase contrast center text="add new author" icon={<BsCheckLg />}>
@@ -26,7 +35,13 @@ export const CreateShowcase = ({ textfields, title, url, illustration }) => {
             </Heading>
             <RenderTextfields textfields={textfields} />
             <ImageUploader image={image} setImage={setImage} />
-            <Button active center text="submit author" icon={<BsCheckLg />} />
+            <Button
+              active
+              center
+              text="submit author"
+              icon={<BsCheckLg />}
+              disabled={loading}
+            />
           </form>
         </FormProvider>
       </div>

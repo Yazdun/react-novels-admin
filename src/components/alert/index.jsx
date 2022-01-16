@@ -4,16 +4,11 @@ import { FaCheck } from "react-icons/fa";
 import { RiAlarmWarningFill } from "react-icons/ri";
 import { CgClose } from "react-icons/cg";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-export const Alert = ({
-  success,
-  danger,
-  show,
-  handleShow,
-  message,
-  float,
-  inline,
-}) => {
+export const Alert = ({ success, danger, show, message, float, inline }) => {
+  const [showAlert, setShowAlert] = useState(show);
+
   return (
     <div
       className={classNames(
@@ -22,7 +17,7 @@ export const Alert = ({
         danger && s.danger,
         float && s.float,
         inline && s.inline,
-        show ? s.show : s.hide
+        showAlert ? s.show : s.hide
       )}
     >
       <div className={s.content}>
@@ -36,7 +31,7 @@ export const Alert = ({
       <CgClose
         className={s.close}
         onClick={() => {
-          handleShow(false);
+          setShowAlert(false);
         }}
       />
     </div>
@@ -47,7 +42,6 @@ Alert.propTypes = {
   success: PropTypes.bool,
   danger: PropTypes.bool,
   show: PropTypes.bool,
-  handleShow: PropTypes.func,
   message: PropTypes.string,
   fixed: PropTypes.bool,
   block: PropTypes.bool,
