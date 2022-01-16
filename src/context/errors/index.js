@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { createContext, useState, useEffect, useMemo, useContext } from "react";
 import { useAuthContext, useAuthActions } from "../auth";
+import { ErrorPage } from "../../views/errors";
 
 const ErrorStatusContext = createContext();
 
@@ -31,10 +32,26 @@ export const ErrorHandler = ({ children }) => {
   }, []);
 
   const renderContent = () => {
-    switch (errorStatusCode) {
-      case 401:
+    switch (true) {
+      case errorStatusCode === 401:
         if (isLoggedIn) return logOut();
         return children;
+
+      case errorStatusCode >= 500:
+        return (
+          <ErrorPage
+            title="500 ! Our fault ..."
+            message="there is a problem within our servers, we are looking into it ..."
+          />
+        );
+
+      case errorStatusCode === "NETWORK":
+        return (
+          <ErrorPage
+            title="Oops ! Network Error..."
+            message="request is failed, something wrong with your network"
+          />
+        );
 
       default:
         return children;

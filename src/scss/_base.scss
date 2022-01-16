@@ -1,5 +1,16 @@
 html {
   box-sizing: border-box;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
 }
 
 *,
@@ -13,9 +24,6 @@ html {
 body {
   background-color: $clr--bg--primary;
   font-family: $font-main;
-
-  // background-color: rgb(54, 54, 54);
-  // color: $clr--txt;
 }
 
 .sr-only {

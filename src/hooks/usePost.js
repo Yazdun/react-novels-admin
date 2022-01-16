@@ -19,9 +19,14 @@ export const usePost = (url, success_function) => {
         .then((res) => success_function(res.data))
         .then(() => setLoading(false));
     } catch (error) {
-      errorHandler(error.response.status, error.response.data.msg.split(","));
-
-      setLoading(false);
+      if (!error.response) {
+        errorHandler("NETWORK", null);
+        setLoading(false);
+      } else {
+        errorHandler(error.response.status, error.response.data.msg.split(","));
+        console.log(error);
+        setLoading(false);
+      }
     }
   };
 

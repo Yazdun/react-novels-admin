@@ -6,7 +6,7 @@ import { useGet } from "../../hooks/useGet";
 import { useEffect, useState } from "react";
 import { columns } from "./columns";
 import { CreateShowcase } from "../../showcases";
-import { AuthorTextfields } from "../../helpers";
+import { AuthorTextfields } from "../../utils";
 import { planet_one } from "../../assets/";
 
 export const Authors = () => {
