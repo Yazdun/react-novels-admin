@@ -6,7 +6,10 @@
   border: 1px dashed $clr--border;
   // height: toRem(80);
   display: flex;
+  margin: $margin--mid 0;
+
   height: toRem(80);
+  // margin-top: toRem(20) 0;
   // justify-content: space-between;
 
   label {

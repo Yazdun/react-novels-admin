@@ -1,5 +1,8 @@
 @import "../../scss/essentials";
 
+.wrapper {
+  margin: $margin--mid 0;
+}
 .err {
   color: $clr--danger--secondary;
   display: flex;

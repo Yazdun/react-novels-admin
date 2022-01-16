@@ -1,6 +1,6 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { BsCheckLg } from "react-icons/bs";
-import { Button, Heading, RenderTextfields } from "../../ui";
+import { Button, Heading, RenderErrors, RenderTextfields } from "../../ui";
 import { Showcase, ImageUploader, Alert } from "../../components";
 import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
@@ -28,7 +28,7 @@ export const CreateShowcase = ({
     refreshData();
     showAlert("author has been submitted");
   };
-  const { execute, serverErrors, loading, success } = usePost(
+  const { execute, serverErrors, loading } = usePost(
     "/admin/author/create",
     success_submit
   );
@@ -44,6 +44,7 @@ export const CreateShowcase = ({
             </Heading>
             <RenderTextfields textfields={textfields} />
             <ImageUploader image={image} setImage={setImage} />
+            {serverErrors && <RenderErrors errors={serverErrors} />}
             <Button
               active
               center
