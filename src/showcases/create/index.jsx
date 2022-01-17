@@ -1,7 +1,7 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { BsCheckLg } from "react-icons/bs";
 import { Button, Heading, RenderErrors, RenderTextfields } from "../../ui";
-import { Showcase, ImageUploader, Alert } from "../../components";
+import { Showcase, ImageUploader } from "../../components";
 import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";

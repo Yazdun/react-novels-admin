@@ -1,4 +1,12 @@
-import { Authors, Dashboard, Novels, Login, Users, Page404 } from "../views";
+import {
+  Authors,
+  Dashboard,
+  Novels,
+  Login,
+  Users,
+  AuthorActions,
+  Page404,
+} from "../views";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 
@@ -25,6 +33,12 @@ export const routes = [
     exact: true,
     path: "/authors",
     component: Authors,
+    private: true,
+  },
+  {
+    exact: true,
+    path: "/authors/actions/:id",
+    component: AuthorActions,
     private: true,
   },
   {

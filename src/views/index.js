@@ -4,5 +4,6 @@ export { Dashboard } from "./dashboard";
 export { Login } from "./login";
 export { Users } from "./users";
 export { Page404 } from "./errors";
+export { AuthorActions } from "./authorActions";
 
 // export {  } from "./";

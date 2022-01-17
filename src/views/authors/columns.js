@@ -2,7 +2,6 @@ import s from "./styles.module.scss";
 import Moment from "react-moment";
 import { FaUserEdit } from "react-icons/fa";
 import { placeholder } from "../../assets/";
-import { Button } from "../../ui";
 import { Link } from "react-router-dom";
 
 export const columns = [
@@ -12,7 +11,7 @@ export const columns = [
     defaultWidth: 50,
     render: ({ value }) => (
       <div className={s.actions}>
-        <Link to={`/authors/edit/${value}`}>
+        <Link to={`/authors/actions/${value}`}>
           <FaUserEdit />
         </Link>
       </div>
