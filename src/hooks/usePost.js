@@ -4,11 +4,11 @@ import "../axios";
 import { useErrorStatus } from "../context/errors";
 
 export const usePost = (url, success_function) => {
-  const [loading, setLoading] = useState(false);
+  const [postLoading, setPostLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
   const execute = async (values) => {
-    setLoading(true);
+    setPostLoading(true);
     errorHandler(undefined, undefined);
 
     try {
@@ -17,18 +17,18 @@ export const usePost = (url, success_function) => {
           ...values,
         })
         .then((res) => success_function(res.data))
-        .then(() => setLoading(false));
+        .then(() => setPostLoading(false));
     } catch (error) {
       if (!error.response) {
         errorHandler("NETWORK", null);
-        setLoading(false);
+        setPostLoading(false);
       } else {
         errorHandler(error.response.status, error.response.data.msg.split(","));
         console.log(error);
-        setLoading(false);
+        setPostLoading(false);
       }
     }
   };
 
-  return { execute, serverErrors, loading };
+  return { execute, serverErrors, postLoading };
 };

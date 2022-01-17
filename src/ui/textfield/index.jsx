@@ -4,6 +4,7 @@ import { filterError, isError } from "./helpers";
 import classnames from "classnames";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import PropTypes from "prop-types";
+import { Loading } from "../../components";
 
 export const Textfield = ({
   type,
@@ -13,6 +14,7 @@ export const Textfield = ({
   validation,
   label,
   multiline,
+  loading,
 }) => {
   const {
     register,
@@ -20,6 +22,13 @@ export const Textfield = ({
   } = useFormContext(); // retrieve all hook methods
   const e = filterError({ errors, name });
   const isErr = isError(e);
+
+  if (loading)
+    return (
+      <div className={s.loading}>
+        <Loading height={60} />
+      </div>
+    );
 
   return (
     <div className={classnames(s.field, isErr && s.fieldErr)}>

@@ -4,29 +4,29 @@ import "../axios";
 import { useErrorStatus } from "../context/errors";
 
 export const useGet = (url, success_function) => {
-  const [loading, setLoading] = useState(false);
+  const [getLoading, setGetLoading] = useState(true);
   const { errorHandler, serverErrors } = useErrorStatus();
 
   const execute = async () => {
-    setLoading(true);
+    setGetLoading(true);
     errorHandler(undefined, undefined);
 
     try {
       await axios
         .get(url)
         .then((res) => success_function(res.data))
-        .then(() => setLoading(false));
+        .then(() => setGetLoading(false));
     } catch (error) {
       if (!error.response) {
         errorHandler("NETWORK", null);
-        setLoading(false);
+        setGetLoading(false);
       } else {
         errorHandler(error.response.status, error.response.data.msg.split(","));
         console.log(error);
-        setLoading(false);
+        setGetLoading(false);
       }
     }
   };
 
-  return { execute, serverErrors, loading };
+  return { execute, serverErrors, getLoading };
 };

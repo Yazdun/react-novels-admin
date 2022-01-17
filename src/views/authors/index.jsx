@@ -19,7 +19,7 @@ export const Authors = () => {
     setFilteredAuthors(filter);
   };
 
-  const { execute, loading } = useGet("/admin/author/", handleAuthors);
+  const { execute, getLoading } = useGet("/admin/author/", handleAuthors);
 
   useEffect(() => {
     execute();
@@ -35,7 +35,7 @@ export const Authors = () => {
         onChange={search}
       />
       <Datagrid
-        loading={loading}
+        loading={getLoading}
         data={filteredAuthors ? filteredAuthors : authors}
         columns={columns}
         gridStyle={{ minHeight: 550 }}

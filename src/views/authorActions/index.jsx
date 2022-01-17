@@ -1,11 +1,14 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
-import { Container, RenderTextfields } from "../../ui";
+import { Button, Container, RenderTextfields } from "../../ui";
 import { AuthorTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
 import { useGet } from "../../hooks";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { DeleteModal } from "../../modals";
+import { SiCloudsmith } from "react-icons/si";
+import { Loading } from "../../components/loading";
 
 export const AuthorActions = () => {
   const methods = useForm();
@@ -30,7 +33,10 @@ export const AuthorActions = () => {
     });
   };
 
-  const { execute, loading } = useGet(`/admin/author/find/${id}`, handleAuthor);
+  const { execute, getLoading } = useGet(
+    `/admin/author/find/${id}`,
+    handleAuthor
+  );
 
   useEffect(() => {
     execute();
@@ -39,8 +45,15 @@ export const AuthorActions = () => {
   return (
     <Container>
       <FormProvider {...methods}>
-        <RenderTextfields textfields={AuthorTextfields} />
+        <RenderTextfields textfields={AuthorTextfields} loading={getLoading} />
+        <Button
+          active
+          icon={<SiCloudsmith />}
+          text="update"
+          disabled={getLoading}
+        />
       </FormProvider>
+      <DeleteModal />
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import { Textfield } from "../textfield";
 import PropTypes from "prop-types";
 import s from "./styles.module.scss";
-export const RenderTextfields = ({ textfields }) => {
+export const RenderTextfields = ({ textfields, loading }) => {
   return (
     <>
       {textfields.map((textfield, index) => {
@@ -18,6 +18,7 @@ export const RenderTextfields = ({ textfields }) => {
             placeholder={placeholder}
             validation={validation}
             multiline={multiline ? true : false}
+            loading={loading}
           />
         );
       })}

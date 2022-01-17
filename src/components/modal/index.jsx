@@ -12,6 +12,7 @@ export const Modal = ({
   success,
   text,
   icon,
+  center,
 }) => {
   const [states, setStates] = useState({
     notTouched: true,
@@ -34,18 +35,23 @@ export const Modal = ({
         text={text}
         icon={icon}
         onClick={showModal}
+        center={center}
       />
 
       <div
-        className={classNames(show ? s.background : s.noneDisplay)}
+        className={classNames(
+          s.background,
+          notTouched && s.noneDisplay,
+          show ? s.showBackground : s.hideBackground
+        )}
         onClick={() => hideModal()}
       ></div>
       <div
         className={classNames(
           s.modal,
           notTouched && s.noneDisplay,
-          show && s.show,
-          hide && s.hide
+          show && s.showModal,
+          hide && s.hideModal
         )}
       >
         <GrClose className={s.close} onClick={() => hideModal()} />

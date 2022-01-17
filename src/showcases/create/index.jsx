@@ -30,7 +30,7 @@ export const CreateShowcase = ({
     setImage("");
     showAlert("author has been submitted");
   };
-  const { execute, serverErrors, loading } = usePost(
+  const { execute, serverErrors, postLoading } = usePost(
     "/admin/author/create",
     success_submit
   );
@@ -52,7 +52,7 @@ export const CreateShowcase = ({
               center
               text="submit author"
               icon={<BsCheckLg />}
-              disabled={loading}
+              disabled={postLoading}
             />
           </form>
         </FormProvider>
