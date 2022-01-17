@@ -64,12 +64,23 @@
 .background {
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
+  top: 150%;
+  left: 50%;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex--modal--background;
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(0.27rem);
+}
+
+.showBackground {
+  animation: 0.3s apearBackground;
+}
+
+.hideBackground {
+  transform: scale(0);
+  animation: 0.5s disapearBackground;
 }
 
 .close {
@@ -101,5 +112,29 @@
 
   100% {
     left: -100%;
+  }
+}
+
+@keyframes apearBackground {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes disapearBackground {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    z-index: $zindex--modal--background;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    z-index: $zindex--modal--background;
   }
 }

@@ -25,7 +25,11 @@ export const Sidebar = ({ items }) => {
         <MdMenu />
       </button>
       <div
-        className={classnames(open && s.background)}
+        className={classnames(
+          s.background,
+          untouched && s.untouched,
+          open ? s.showBackground : s.hideBackground
+        )}
         onClick={() => closeSidebar()}
       ></div>
       <ul
