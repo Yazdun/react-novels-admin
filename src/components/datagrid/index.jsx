@@ -16,8 +16,8 @@ export const Datagrid = ({ data, columns, gridStyle, limit, loading }) => {
           style={gridStyle}
           columns={columns}
           dataSource={data}
-          pagination="true"
-          limit={limit}
+          // pagination
+          // limit={limit}
         />
       )}
     </div>

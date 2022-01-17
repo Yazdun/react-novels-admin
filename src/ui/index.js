@@ -6,3 +6,4 @@ export { Heading } from "./heading";
 export { Typography } from "./typography";
 export { RenderErrors } from "./render_errors";
 export { Spinner } from "./spinner";
+export { Input } from "./input";

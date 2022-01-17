@@ -1,7 +1,5 @@
-import s from "./styles.module.scss";
-import classnames from "classnames";
-import { Container } from "../../ui";
-import { Datagrid, Showcase } from "../../components";
+import { Container, Input } from "../../ui";
+import { Datagrid } from "../../components";
 import { useGet } from "../../hooks/useGet";
 import { useEffect, useState } from "react";
 import { columns } from "./columns";
@@ -11,21 +9,34 @@ import { man_one } from "../../assets/";
 
 export const Authors = () => {
   const [authors, setAuthors] = useState([]);
+  const [filteredAuthors, setFilteredAuthors] = useState(undefined);
   const handleAuthors = (data) => setAuthors(data.authors);
 
-  const { execute, serverErrors, loading } = useGet(
-    "/admin/author/",
-    handleAuthors
-  );
+  const search = (searchTerm) => {
+    const filter = authors.filter((author) => {
+      return author.name.includes(searchTerm);
+    });
+    setFilteredAuthors(filter);
+  };
+
+  const { execute, loading } = useGet("/admin/author/", handleAuthors);
 
   useEffect(() => {
     execute();
   }, []);
   return (
     <Container>
+      <Input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="search"
+        label="search"
+        onChange={search}
+      />
       <Datagrid
         loading={loading}
-        data={authors}
+        data={filteredAuthors ? filteredAuthors : authors}
         columns={columns}
         gridStyle={{ minHeight: 550 }}
         limit={20}

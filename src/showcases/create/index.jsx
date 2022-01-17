@@ -6,6 +6,7 @@ import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
+// import { DeleteModal } from "../../modals";
 
 export const CreateShowcase = ({
   textfields,
@@ -26,6 +27,7 @@ export const CreateShowcase = ({
   const success_submit = () => {
     methods.reset();
     refreshData();
+    setImage("");
     showAlert("author has been submitted");
   };
   const { execute, serverErrors, loading } = usePost(
@@ -54,6 +56,7 @@ export const CreateShowcase = ({
             />
           </form>
         </FormProvider>
+        {/* <DeleteModal /> */}
       </div>
     </Showcase>
   );

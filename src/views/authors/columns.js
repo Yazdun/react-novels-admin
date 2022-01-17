@@ -1,21 +1,20 @@
 import s from "./styles.module.scss";
 import Moment from "react-moment";
-import { RiEditBoxLine } from "react-icons/ri";
-import { FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaUserEdit } from "react-icons/fa";
 import { placeholder } from "../../assets/";
 import { Button } from "../../ui";
+import { Link } from "react-router-dom";
 
 export const columns = [
   {
     name: "_id",
     header: "",
-    defaultWidth: 70,
+    defaultWidth: 50,
     render: ({ value }) => (
       <div className={s.actions}>
-        <Button icon={<RiEditBoxLine />} contrast />
-
-        <Button icon={<FaEye />} active />
+        <Link to={`/authors/edit/${value}`}>
+          <FaUserEdit />
+        </Link>
       </div>
     ),
   },
@@ -34,7 +33,7 @@ export const columns = [
   {
     name: "nationality",
     header: "Nationality",
-    defaultWidth: 200,
+    defaultWidth: 250,
   },
   {
     name: "birth",
