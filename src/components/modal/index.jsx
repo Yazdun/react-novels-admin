@@ -50,8 +50,7 @@ export const Modal = ({
         className={classNames(
           s.modal,
           notTouched && s.noneDisplay,
-          show && s.showModal,
-          hide && s.hideModal
+          show ? s.showModal : s.hideModal
         )}
       >
         <GrClose className={s.close} onClick={() => hideModal()} />
