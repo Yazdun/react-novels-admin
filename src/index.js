@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/auth";
-import { ErrorHandler } from "./context/errors";
 import { AlertProvider } from "./context/alert";
 
 ReactDOM.render(
@@ -11,9 +10,7 @@ ReactDOM.render(
     <BrowserRouter>
       <AlertProvider>
         <AuthProvider>
-          <ErrorHandler>
-            <App />
-          </ErrorHandler>
+          <App />
         </AuthProvider>
       </AlertProvider>
     </BrowserRouter>

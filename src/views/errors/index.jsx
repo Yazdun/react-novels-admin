@@ -5,19 +5,21 @@ import { error_illustration, lightning_cloud } from "../../assets";
 
 export const Page404 = () => {
   return (
-    <Container customClass={s.customContainer}>
-      <img
-        className={s.img}
-        src={error_illustration}
-        alt="sad ghost illustration which represents error page"
-      />
+    <Container customClass={s.errorContainer}>
+      <div className={s.animate}>
+        <img
+          className={s.img}
+          src={error_illustration}
+          alt="sad ghost illustration which represents error page"
+        />
 
-      <Heading bold marginMid>
-        Oops !
-      </Heading>
-      <Typography secondary center>
-        this content either doesn't exist or deleted
-      </Typography>
+        <Heading bold marginMid>
+          Oops !
+        </Heading>
+        <Typography secondary center>
+          this content either doesn't exist or deleted
+        </Typography>
+      </div>
     </Container>
   );
 };
@@ -29,7 +31,7 @@ export const ErrorPage = ({ title, message }) => {
         <img
           className={s.img}
           src={lightning_cloud}
-          alt="sad ghost illustration which represents error page"
+          alt="lightening cloud illustration which represents error page"
         />
 
         <Heading bold marginMid>
