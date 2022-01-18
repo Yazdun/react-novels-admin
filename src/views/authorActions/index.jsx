@@ -45,37 +45,41 @@ export const AuthorActions = () => {
 
   return (
     <Container customClass={s.customContainer}>
-      {/* <img
+      <img
         src={girl_one}
         className={s.img}
         alt="a girl standing with glasses"
-      /> */}
+      />
       <div className={s.form}>
         <FormProvider {...methods}>
-          <form className={s.test} onSubmit={methods.handleSubmit(onSubmit)}>
+          <form onSubmit={methods.handleSubmit(onSubmit)}>
             <Heading center bold>
               Edit author
             </Heading>
+
             <RenderTextfields
               textfields={AuthorTextfields}
               loading={getLoading}
+              grid
             />
+
             <Button
               active
               icon={<SiCloudsmith />}
-              text="update"
+              text="edit author"
               disabled={getLoading}
-              customClass={s.customBtn}
               center
             />
           </form>
         </FormProvider>
-        <div className={s.danger}>
-          <Heading center bold danger>
-            Delete author
-          </Heading>
-          <DeleteModal />
-        </div>
+        {!getLoading && (
+          <div className={s.danger}>
+            <Heading center bold danger>
+              Danger zone !
+            </Heading>
+            <DeleteModal />
+          </div>
+        )}
       </div>
     </Container>
   );

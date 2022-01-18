@@ -48,7 +48,7 @@ export const CreateShowcase = ({
             <Heading center bold>
               {title}
             </Heading>
-            <RenderTextfields textfields={textfields} />
+            <RenderTextfields grid textfields={textfields} />
             <ImageUploader image={image} setImage={setImage} />
             {serverErrors && <RenderErrors errors={serverErrors} />}
             <Button

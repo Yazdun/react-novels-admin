@@ -1,9 +1,13 @@
 import { Textfield } from "../textfield";
 import PropTypes from "prop-types";
 import s from "./styles.module.scss";
-export const RenderTextfields = ({ textfields, loading }) => {
+import { Loading } from "../../components";
+
+export const RenderTextfields = ({ textfields, grid, loading }) => {
+  if (loading) return <Loading height={400} />;
+
   return (
-    <>
+    <div className={grid && s.grid}>
       {textfields.map((textfield, index) => {
         const { type, id, name, placeholder, validation, label, multiline } =
           textfield;
@@ -19,10 +23,11 @@ export const RenderTextfields = ({ textfields, loading }) => {
             validation={validation}
             multiline={multiline ? true : false}
             loading={loading}
+            customClass={multiline ? s.multiline : s.input}
           />
         );
       })}
-    </>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@
 .customContainer {
   @include breakpoint-up(laptop) {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
@@ -21,16 +21,11 @@
 
 .form {
   width: 100%;
+  margin: $margin--mid 0;
 
-  // @include breakpoint-up(laptop) {
-  //   width: 55%;
-  // }
-}
-
-.customBtn {
-  width: 100%;
-  max-width: toRem(150);
-  justify-content: center;
+  @include breakpoint-up(laptop) {
+    width: 70%;
+  }
 }
 
 .danger {
@@ -39,11 +34,9 @@
   box-shadow: $shadow--one;
   border-radius: $border--radius;
   padding: toRem(20);
-  margin: $margin--high 0;
-  align-self: flex-start;
+  margin: $margin--high auto;
+  width: 100%;
+  // max-width: $max-width-tablet;
+  // align-self: flex-start;
   //   background-color: red;
 }
-
-// .test {
-//   display: flex;
-// }

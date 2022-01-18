@@ -13,6 +13,23 @@ export const AuthorTextfields = [
     },
   },
   {
+    name: "nationality",
+    label: "nationality",
+    type: "text",
+    id: "nationality",
+    placeholder: "e.g. USA",
+    validation: {
+      required: {
+        value: true,
+        message: "author's nationality is required",
+      },
+      minLength: {
+        value: 2,
+        message: "min length is 2 chars",
+      },
+    },
+  },
+  {
     name: "birth",
     label: "birth",
     type: "date",
@@ -32,23 +49,6 @@ export const AuthorTextfields = [
     id: "death",
     placeholder: "2022/1/1",
     validation: {},
-  },
-  {
-    name: "nationality",
-    label: "nationality",
-    type: "text",
-    id: "nationality",
-    placeholder: "e.g. USA",
-    validation: {
-      required: {
-        value: true,
-        message: "author's nationality is required",
-      },
-      minLength: {
-        value: 2,
-        message: "min length is 2 chars",
-      },
-    },
   },
 
   {

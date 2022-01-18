@@ -1,1 +1,19 @@
 @import "../../scss/essentials";
+
+@include breakpoint-up(tablet) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin: $margin--mid 0;
+
+    .input {
+      margin: 0;
+    }
+
+    .multiline {
+      grid-column: 1 / 3;
+      margin: 0;
+    }
+  }
+}

@@ -4,7 +4,6 @@ import { filterError, isError } from "./helpers";
 import classnames from "classnames";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import PropTypes from "prop-types";
-import { Loading } from "../../components";
 
 export const Textfield = ({
   type,
@@ -14,7 +13,7 @@ export const Textfield = ({
   validation,
   label,
   multiline,
-  loading,
+  customClass,
 }) => {
   const {
     register,
@@ -23,15 +22,14 @@ export const Textfield = ({
   const e = filterError({ errors, name });
   const isErr = isError(e);
 
-  if (loading)
-    return (
-      <div className={s.loading}>
-        <Loading height={60} />
-      </div>
-    );
-
   return (
-    <div className={classnames(s.field, isErr && s.fieldErr)}>
+    <div
+      className={classnames(
+        s.field,
+        isErr && s.fieldErr,
+        customClass && customClass
+      )}
+    >
       {multiline ? (
         <textarea
           className={classnames(s.textfield, s.textarea)}
