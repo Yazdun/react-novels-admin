@@ -3,30 +3,30 @@ import axios from "axios";
 import "../axios";
 import { useErrorStatus } from "../context/errors";
 
-export const useGet = (url, success_function) => {
-  const [getLoading, setGetLoading] = useState(false);
+export const useDelete = (url, success_function) => {
+  const [deleteLoading, setDeleteLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
   const execute = async () => {
-    setGetLoading(true);
+    setDeleteLoading(true);
     errorHandler(undefined, undefined);
 
     try {
       await axios
-        .get(url)
+        .delete(url)
         .then((res) => success_function(res.data))
-        .then(() => setGetLoading(false));
+        .then(() => setDeleteLoading(false));
     } catch (error) {
       if (!error.response) {
         errorHandler("NETWORK", null);
-        setGetLoading(false);
+        setDeleteLoading(false);
       } else {
         errorHandler(error.response.status, error.response.data.msg.split(","));
         console.log(error);
-        setGetLoading(false);
+        setDeleteLoading(false);
       }
     }
   };
 
-  return { execute, serverErrors, getLoading };
+  return { execute, serverErrors, deleteLoading };
 };

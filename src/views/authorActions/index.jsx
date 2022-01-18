@@ -8,7 +8,7 @@ import { useGet } from "../../hooks";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SiCloudsmith } from "react-icons/si";
-import { GET_SINGLE_AUTHOR } from "../../services";
+import { GET_SINGLE_AUTHOR, DELETE_AUTHOR } from "../../services";
 import { girl_one } from "../../assets";
 export const AuthorActions = () => {
   const methods = useForm();
@@ -77,7 +77,11 @@ export const AuthorActions = () => {
             <Heading center bold danger>
               Danger zone !
             </Heading>
-            <DeleteModal />
+            <DeleteModal
+              item="author"
+              question="Delete This Author ?"
+              url={DELETE_AUTHOR(id)}
+            />
           </div>
         )}
       </div>
