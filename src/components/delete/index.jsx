@@ -14,15 +14,9 @@ export const DeleteModal = ({ item, question, url, loading }) => {
     history.push(`/${item}s`);
     showAlert(`${item} has been deleted`);
   };
-  const { execute, deleteLoading } = useDelete(url, afterDelete);
+  const { deleteRequest, deleteLoading } = useDelete(url, afterDelete);
   return (
-    <Modal
-      danger
-      icon={<RiDeleteBack2Fill />}
-      // text={`delete ${item}`}
-      center
-      loading={loading}
-    >
+    <Modal danger icon={<RiDeleteBack2Fill />} center loading={loading}>
       <div className={s.wrap}>
         <Typography bold>{question}</Typography>
         <Button
@@ -30,7 +24,7 @@ export const DeleteModal = ({ item, question, url, loading }) => {
           center
           text="yes, procceed"
           icon={<AiTwotoneDelete />}
-          onClick={execute}
+          onClick={deleteRequest}
           disabled={deleteLoading}
         />
       </div>

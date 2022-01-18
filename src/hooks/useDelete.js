@@ -7,7 +7,7 @@ export const useDelete = (url, success_function) => {
   const [deleteLoading, setDeleteLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const execute = async () => {
+  const deleteRequest = async () => {
     setDeleteLoading(true);
     errorHandler(undefined, undefined);
 
@@ -28,5 +28,5 @@ export const useDelete = (url, success_function) => {
     }
   };
 
-  return { execute, serverErrors, deleteLoading };
+  return { deleteRequest, serverErrors, deleteLoading };
 };

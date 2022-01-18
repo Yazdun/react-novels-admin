@@ -19,10 +19,10 @@ export const Authors = () => {
     setFilteredAuthors(filter);
   };
 
-  const { execute, getLoading } = useGet(GET_ALL_AUTHORS, handleAuthors);
+  const { getRequest, getLoading } = useGet(GET_ALL_AUTHORS, handleAuthors);
 
   useEffect(() => {
-    execute();
+    getRequest();
   }, []);
   return (
     <Container>
@@ -45,7 +45,7 @@ export const Authors = () => {
         textfields={AuthorTextfields}
         title="Create new author"
         illustration={man_one}
-        refreshData={execute}
+        refreshData={getRequest}
       />
     </Container>
   );

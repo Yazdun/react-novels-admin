@@ -7,7 +7,7 @@ export const usePost = (url, success_function) => {
   const [postLoading, setPostLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const execute = async (values) => {
+  const postRequest = async (values) => {
     setPostLoading(true);
     errorHandler(undefined, undefined);
 
@@ -30,5 +30,5 @@ export const usePost = (url, success_function) => {
     }
   };
 
-  return { execute, serverErrors, postLoading };
+  return { postRequest, serverErrors, postLoading };
 };

@@ -44,12 +44,15 @@ export const AuthorActions = () => {
     EDIT_AUTHOR(id),
     handleAuthor
   );
-  const { execute, getLoading } = useGet(GET_SINGLE_AUTHOR(id), handleAuthor);
+  const { getRequest, getLoading } = useGet(
+    GET_SINGLE_AUTHOR(id),
+    handleAuthor
+  );
 
   const onSubmit = (data) => patch(data);
 
   useEffect(() => {
-    execute();
+    getRequest();
   }, [id]);
 
   return (

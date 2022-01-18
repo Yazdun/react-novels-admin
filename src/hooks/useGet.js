@@ -7,7 +7,7 @@ export const useGet = (url, success_function) => {
   const [getLoading, setGetLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const execute = async () => {
+  const getRequest = async () => {
     setGetLoading(true);
     errorHandler(undefined, undefined);
 
@@ -28,5 +28,5 @@ export const useGet = (url, success_function) => {
     }
   };
 
-  return { execute, serverErrors, getLoading };
+  return { getRequest, serverErrors, getLoading };
 };

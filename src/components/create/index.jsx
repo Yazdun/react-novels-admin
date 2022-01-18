@@ -25,7 +25,7 @@ export const CreateShowcase = ({
   const [image, setImage] = useState();
   const { showAlert } = useAlertContext();
 
-  const onSubmit = (data) => execute({ ...data, image });
+  const onSubmit = (data) => postRequest({ ...data, image });
 
   const success_submit = () => {
     methods.reset();
@@ -33,7 +33,7 @@ export const CreateShowcase = ({
     setImage("");
     showAlert("author has been submitted");
   };
-  const { execute, serverErrors, postLoading } = usePost(
+  const { postRequest, serverErrors, postLoading } = usePost(
     CREATE_AUTHOR,
     success_submit
   );
