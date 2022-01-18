@@ -5,7 +5,7 @@ import { useDelete } from "../../hooks";
 import { useHistory } from "react-router-dom";
 import { useAlertContext } from "../../context/alert";
 
-export const DeleteModal = ({ item, question, url }) => {
+export const DeleteModal = ({ item, question, url, loading }) => {
   const history = useHistory();
   const { showAlert } = useAlertContext();
 
@@ -15,7 +15,13 @@ export const DeleteModal = ({ item, question, url }) => {
   };
   const { execute, deleteLoading } = useDelete(url, afterDelete);
   return (
-    <Modal danger icon={<BsTrash2Fill />} text={`delete ${item}`} center>
+    <Modal
+      danger
+      icon={<BsTrash2Fill />}
+      text={`delete ${item}`}
+      center
+      loading={loading}
+    >
       <div className={s.wrap}>
         <Typography bold>{question}</Typography>
         <Button

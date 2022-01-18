@@ -13,6 +13,7 @@ export const Modal = ({
   text,
   icon,
   center,
+  loading,
 }) => {
   const [states, setStates] = useState({
     notTouched: true,
@@ -36,6 +37,7 @@ export const Modal = ({
         icon={icon}
         onClick={showModal}
         center={center}
+        disabled={loading}
       />
 
       <div

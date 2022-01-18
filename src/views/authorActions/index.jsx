@@ -1,28 +1,23 @@
 import s from "./styles.module.scss";
-import classnames from "classnames";
 import { Button, Container, Heading, RenderTextfields } from "../../ui";
 import { DeleteModal } from "../../components";
 import { AuthorTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
-import { useGet } from "../../hooks";
-import { useEffect, useState } from "react";
+import { useGet, usePatch } from "../../hooks";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { SiCloudsmith } from "react-icons/si";
-import { GET_SINGLE_AUTHOR, DELETE_AUTHOR } from "../../services";
+import { GET_SINGLE_AUTHOR, DELETE_AUTHOR, EDIT_AUTHOR } from "../../services";
 import { girl_one } from "../../assets";
 export const AuthorActions = () => {
   const methods = useForm();
-
   const { id } = useParams();
-
-  const [author, setAuthor] = useState(undefined);
-
   const handleAuthor = (data) => {
     const { name, birth, death, nationality, bio } = data.author;
     const inputs = [
       { name: "name", value: name },
       { name: "birth", value: birth.split("T")[0] },
-      { name: "death", value: death ? birth.split("T")[0] : null },
+      { name: "death", value: death ? death.split("T")[0] : null },
       { name: "nationality", value: nationality },
       { name: "bio", value: bio },
     ];
@@ -33,10 +28,9 @@ export const AuthorActions = () => {
     });
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const { patch, patchLoading } = usePatch(EDIT_AUTHOR(id), handleAuthor);
 
+  const onSubmit = (data) => patch(data);
   const { execute, getLoading } = useGet(GET_SINGLE_AUTHOR(id), handleAuthor);
 
   useEffect(() => {
@@ -59,31 +53,31 @@ export const AuthorActions = () => {
 
             <RenderTextfields
               textfields={AuthorTextfields}
-              loading={getLoading}
+              loading={getLoading || patchLoading}
               grid
             />
 
             <Button
               active
               icon={<SiCloudsmith />}
-              text="edit author"
-              disabled={getLoading}
+              text="update author"
+              disabled={getLoading || patchLoading}
               center
             />
           </form>
         </FormProvider>
-        {!getLoading && (
-          <div className={s.danger}>
-            <Heading center bold danger>
-              Danger zone !
-            </Heading>
-            <DeleteModal
-              item="author"
-              question="Delete This Author ?"
-              url={DELETE_AUTHOR(id)}
-            />
-          </div>
-        )}
+
+        <div className={s.danger}>
+          <Heading center bold danger>
+            Danger zone !
+          </Heading>
+          <DeleteModal
+            item="author"
+            question="Delete This Author ?"
+            loading={getLoading}
+            url={DELETE_AUTHOR(id)}
+          />
+        </div>
       </div>
     </Container>
   );
