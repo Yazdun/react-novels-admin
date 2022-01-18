@@ -4,7 +4,7 @@ import { BsTrash2Fill } from "react-icons/bs";
 
 export const DeleteModal = () => {
   return (
-    <Modal danger icon={<BsTrash2Fill />} text="delete">
+    <Modal danger icon={<BsTrash2Fill />} text="delete" center>
       <div className={s.wrap}>
         <Button danger center text="yes, procceed" icon={<BsTrash2Fill />} />
       </div>

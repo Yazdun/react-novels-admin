@@ -1,1 +1,49 @@
 @import "../../scss/essentials";
+
+.customContainer {
+  @include breakpoint-up(laptop) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.img {
+  display: none;
+  @include breakpoint-up(laptop) {
+    display: block;
+    position: sticky;
+    top: toRem(100);
+    width: 30%;
+    max-width: toRem(150);
+    align-self: flex-start;
+  }
+}
+
+.form {
+  width: 100%;
+
+  // @include breakpoint-up(laptop) {
+  //   width: 55%;
+  // }
+}
+
+.customBtn {
+  width: 100%;
+  max-width: toRem(150);
+  justify-content: center;
+}
+
+.danger {
+  //   background: rgba(255, 102, 102, 0.7);
+  border: 1px solid $clr--danger--secondary;
+  box-shadow: $shadow--one;
+  border-radius: $border--radius;
+  padding: toRem(20);
+  margin: $margin--high 0;
+  align-self: flex-start;
+  //   background-color: red;
+}
+
+// .test {
+//   display: flex;
+// }
