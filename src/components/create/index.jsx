@@ -17,7 +17,6 @@ import { CREATE_AUTHOR } from "../../services";
 export const CreateShowcase = ({
   textfields,
   title,
-  url,
   illustration,
   refreshData,
 }) => {
@@ -60,7 +59,6 @@ export const CreateShowcase = ({
             />
           </form>
         </FormProvider>
-        {/* <DeleteModal /> */}
       </div>
     </Showcase>
   );

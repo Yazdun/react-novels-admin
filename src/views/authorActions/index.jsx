@@ -1,5 +1,11 @@
 import s from "./styles.module.scss";
-import { Button, Container, Heading, RenderTextfields } from "../../ui";
+import {
+  Button,
+  Container,
+  Heading,
+  RenderErrors,
+  RenderTextfields,
+} from "../../ui";
 import { DeleteModal } from "../../components";
 import { AuthorTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
@@ -10,6 +16,7 @@ import { SiCloudsmith } from "react-icons/si";
 import { GET_SINGLE_AUTHOR, DELETE_AUTHOR, EDIT_AUTHOR } from "../../services";
 import { planet_one } from "../../assets";
 import { GiFeatheredWing } from "react-icons/gi";
+
 export const AuthorActions = () => {
   const methods = useForm();
   const { id } = useParams();
@@ -33,7 +40,10 @@ export const AuthorActions = () => {
     });
   };
 
-  const { patch, patchLoading } = usePatch(EDIT_AUTHOR(id), handleAuthor);
+  const { patch, serverErrors, patchLoading } = usePatch(
+    EDIT_AUTHOR(id),
+    handleAuthor
+  );
   const { execute, getLoading } = useGet(GET_SINGLE_AUTHOR(id), handleAuthor);
 
   const onSubmit = (data) => patch(data);
@@ -72,10 +82,10 @@ export const AuthorActions = () => {
             <RenderTextfields
               textfields={AuthorTextfields}
               loading={getLoading || patchLoading}
-              loadingHeight={520}
+              loadingHeight={506}
               grid
             />
-
+            {serverErrors && <RenderErrors errors={serverErrors} />}
             <Button
               active
               icon={<SiCloudsmith />}
