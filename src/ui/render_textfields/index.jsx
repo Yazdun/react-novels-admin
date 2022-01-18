@@ -3,8 +3,13 @@ import PropTypes from "prop-types";
 import s from "./styles.module.scss";
 import { Loading } from "../../components";
 
-export const RenderTextfields = ({ textfields, grid, loading }) => {
-  if (loading) return <Loading height={400} />;
+export const RenderTextfields = ({
+  textfields,
+  grid,
+  loading,
+  loadingHeight,
+}) => {
+  if (loading) return <Loading height={loadingHeight} />;
 
   return (
     <div className={grid && s.grid}>
