@@ -18,6 +18,7 @@ export const Heading = ({
   marginLow,
   marginMid,
   marginHigh,
+  capitalize,
 }) => {
   return (
     <h1
@@ -36,7 +37,8 @@ export const Heading = ({
         marginMin && s.marginMin,
         marginLow && s.marginLow,
         marginMid && s.marginMid,
-        marginHigh && s.marginHigh
+        marginHigh && s.marginHigh,
+        capitalize && s.capitalize
       )}
     >
       {children}

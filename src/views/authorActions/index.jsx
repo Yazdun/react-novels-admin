@@ -4,16 +4,20 @@ import { DeleteModal } from "../../components";
 import { AuthorTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
 import { useGet, usePatch } from "../../hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SiCloudsmith } from "react-icons/si";
 import { GET_SINGLE_AUTHOR, DELETE_AUTHOR, EDIT_AUTHOR } from "../../services";
-import { girl_one } from "../../assets";
+import { planet_one } from "../../assets";
 export const AuthorActions = () => {
   const methods = useForm();
   const { id } = useParams();
+  const [name, setName] = useState(null);
   const handleAuthor = (data) => {
     const { name, birth, death, nationality, bio } = data.author;
+
+    setName(name);
+
     const inputs = [
       { name: "name", value: name },
       { name: "birth", value: birth.split("T")[0] },
@@ -40,17 +44,24 @@ export const AuthorActions = () => {
   return (
     <Container customClass={s.customContainer}>
       <img
-        src={girl_one}
+        src={planet_one}
         className={s.img}
         alt="a girl standing with glasses"
       />
       <div className={s.form}>
+        <div className={s.header}>
+          <Heading center bold capitalize>
+            {patchLoading || getLoading ? "Loading ..." : name}
+          </Heading>
+          <DeleteModal
+            item="author"
+            question="Delete This Author ?"
+            loading={getLoading}
+            url={DELETE_AUTHOR(id)}
+          />
+        </div>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <Heading center bold>
-              Edit author
-            </Heading>
-
             <RenderTextfields
               textfields={AuthorTextfields}
               loading={getLoading || patchLoading}
@@ -63,15 +74,10 @@ export const AuthorActions = () => {
               text="update author"
               disabled={getLoading || patchLoading}
               center
+              customClass={s.btn}
             />
           </form>
         </FormProvider>
-        <DeleteModal
-          item="author"
-          question="Delete This Author ?"
-          loading={getLoading}
-          url={DELETE_AUTHOR(id)}
-        />
       </div>
     </Container>
   );

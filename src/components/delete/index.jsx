@@ -1,6 +1,7 @@
 import s from "./styles.module.scss";
 import { Modal, Button, Typography } from "../../ui";
-import { BsTrash2Fill } from "react-icons/bs";
+import { AiTwotoneDelete } from "react-icons/ai";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 import { useDelete } from "../../hooks";
 import { useHistory } from "react-router-dom";
 import { useAlertContext } from "../../context/alert";
@@ -17,8 +18,8 @@ export const DeleteModal = ({ item, question, url, loading }) => {
   return (
     <Modal
       danger
-      icon={<BsTrash2Fill />}
-      text={`delete ${item}`}
+      icon={<RiDeleteBack2Fill />}
+      // text={`delete ${item}`}
       center
       loading={loading}
     >
@@ -28,7 +29,7 @@ export const DeleteModal = ({ item, question, url, loading }) => {
           danger
           center
           text="yes, procceed"
-          icon={<BsTrash2Fill />}
+          icon={<AiTwotoneDelete />}
           onClick={execute}
           disabled={deleteLoading}
         />

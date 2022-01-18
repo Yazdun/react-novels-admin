@@ -14,8 +14,8 @@
     position: sticky;
     top: toRem(100);
     width: 30%;
-    max-width: toRem(150);
-    align-self: flex-start;
+    max-width: toRem(300);
+    align-self: flex-end;
   }
 }
 
@@ -39,4 +39,16 @@
   // max-width: $max-width-tablet;
   // align-self: flex-start;
   //   background-color: red;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  // border: 1px solid black;
+}
+
+.btn {
+  margin-bottom: 0;
 }

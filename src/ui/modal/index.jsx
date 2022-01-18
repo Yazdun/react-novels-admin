@@ -27,7 +27,7 @@ export const Modal = ({
 
   const { notTouched, show, hide } = states;
   return (
-    <>
+    <div>
       <Button
         contrast={contrast}
         danger={danger}
@@ -58,6 +58,6 @@ export const Modal = ({
         <GrClose className={s.close} onClick={() => hideModal()} />
         <div className={s.children}>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
