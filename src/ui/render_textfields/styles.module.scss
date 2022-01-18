@@ -1,6 +1,6 @@
 @import "../../scss/essentials";
 
-@include breakpoint-up(tablet) {
+@include breakpoint-up(laptop) {
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
