@@ -12,9 +12,12 @@
 
   @include breakpoint-up(desktop) {
     display: block;
+    position: sticky;
+    top: toRem(40);
     width: 40%;
     max-width: toRem(200);
-    align-self: flex-end;
+    align-self: flex-start;
+    // margin-top: $margin--mid;
     // max-width: toRem(400);
   }
 }
