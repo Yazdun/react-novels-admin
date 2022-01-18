@@ -1,9 +1,6 @@
 import s from "./styles.module.scss";
-import classnames from "classnames";
-
-import { Modal } from "../../components";
+import { Modal, Button } from "../../ui";
 import { BsTrash2Fill } from "react-icons/bs";
-import { Button } from "../../ui";
 
 export const DeleteModal = () => {
   return (

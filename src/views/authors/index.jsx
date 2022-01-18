@@ -1,9 +1,8 @@
 import { Container, Input } from "../../ui";
-import { Datagrid } from "../../components";
+import { Datagrid, CreateShowcase } from "../../components";
 import { useGet } from "../../hooks/useGet";
 import { useEffect, useState } from "react";
 import { columns } from "./columns";
-import { CreateShowcase } from "../../showcases";
 import { AuthorTextfields } from "../../utils";
 import { man_one } from "../../assets/";
 

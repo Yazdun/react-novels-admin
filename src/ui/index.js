@@ -7,3 +7,5 @@ export { Typography } from "./typography";
 export { RenderErrors } from "./render_errors";
 export { Spinner } from "./spinner";
 export { Input } from "./input";
+export { Showcase } from "../ui/showcase";
+export { Modal } from "./modal";

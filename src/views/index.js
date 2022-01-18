@@ -5,5 +5,6 @@ export { Login } from "./login";
 export { Users } from "./users";
 export { Page404 } from "./errors";
 export { AuthorActions } from "./authorActions";
+export { routes, PrivateRoute } from "./AppRoutes";
 
 // export {  } from "./";

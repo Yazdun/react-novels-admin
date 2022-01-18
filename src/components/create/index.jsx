@@ -1,12 +1,17 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { BsCheckLg } from "react-icons/bs";
-import { Button, Heading, RenderErrors, RenderTextfields } from "../../ui";
-import { Showcase, ImageUploader } from "../../components";
+import {
+  Showcase,
+  Button,
+  Heading,
+  RenderErrors,
+  RenderTextfields,
+} from "../../ui";
+import { ImageUploader } from "..";
 import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
-// import { DeleteModal } from "../../modals";
 
 export const CreateShowcase = ({
   textfields,

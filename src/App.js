@@ -1,6 +1,6 @@
 import "./scss/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { PrivateRoute, routes } from "./routes";
+import { PrivateRoute, routes } from "./views";
 import { Alert, Topbar } from "./components";
 
 function App() {

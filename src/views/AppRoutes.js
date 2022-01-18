@@ -6,7 +6,7 @@ import {
   Users,
   AuthorActions,
   Page404,
-} from "../views";
+} from ".";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
 

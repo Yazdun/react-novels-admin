@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { Button, Container } from "../../ui";
+import { Button, Container } from "..";
 import s from "./styles.module.scss";
 import { BiArrowBack } from "react-icons/bi";
 
