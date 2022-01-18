@@ -12,6 +12,7 @@ import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
+import { CREATE_AUTHOR } from "../../services";
 
 export const CreateShowcase = ({
   textfields,
@@ -36,7 +37,7 @@ export const CreateShowcase = ({
     showAlert("author has been submitted");
   };
   const { execute, serverErrors, postLoading } = usePost(
-    "/admin/author/create",
+    CREATE_AUTHOR,
     success_submit
   );
 

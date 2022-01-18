@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { columns } from "./columns";
 import { AuthorTextfields } from "../../utils";
 import { man_one } from "../../assets/";
+import { GET_ALL_AUTHORS } from "../../services";
 
 export const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -18,7 +19,7 @@ export const Authors = () => {
     setFilteredAuthors(filter);
   };
 
-  const { execute, getLoading } = useGet("/admin/author/", handleAuthors);
+  const { execute, getLoading } = useGet(GET_ALL_AUTHORS, handleAuthors);
 
   useEffect(() => {
     execute();

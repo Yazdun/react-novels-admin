@@ -1,13 +1,14 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
 import { Button, Container, RenderTextfields } from "../../ui";
-import {DeleteModal} from "../../components"
+import { DeleteModal } from "../../components";
 import { AuthorTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
 import { useGet } from "../../hooks";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SiCloudsmith } from "react-icons/si";
+import { GET_SINGLE_AUTHOR } from "../../services";
 
 export const AuthorActions = () => {
   const methods = useForm();
@@ -32,10 +33,7 @@ export const AuthorActions = () => {
     });
   };
 
-  const { execute, getLoading } = useGet(
-    `/admin/author/find/${id}`,
-    handleAuthor
-  );
+  const { execute, getLoading } = useGet(GET_SINGLE_AUTHOR(id), handleAuthor);
 
   useEffect(() => {
     execute();
