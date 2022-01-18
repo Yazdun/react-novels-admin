@@ -63,7 +63,7 @@ export const AuthorActions = () => {
         <div className={s.header}>
           {patchLoading || getLoading ? null : (
             <>
-              <Heading center bold capitalize>
+              <Heading center bold capitalize small>
                 <GiFeatheredWing />
                 {name}
               </Heading>
