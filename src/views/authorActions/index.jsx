@@ -66,18 +66,12 @@ export const AuthorActions = () => {
             />
           </form>
         </FormProvider>
-
-        <div className={s.danger}>
-          <Heading center bold danger>
-            Danger zone !
-          </Heading>
-          <DeleteModal
-            item="author"
-            question="Delete This Author ?"
-            loading={getLoading}
-            url={DELETE_AUTHOR(id)}
-          />
-        </div>
+        <DeleteModal
+          item="author"
+          question="Delete This Author ?"
+          loading={getLoading}
+          url={DELETE_AUTHOR(id)}
+        />
       </div>
     </Container>
   );
