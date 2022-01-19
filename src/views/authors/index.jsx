@@ -6,6 +6,7 @@ import { columns } from "./columns";
 import { AuthorTextfields } from "../../utils";
 import { man_one } from "../../assets/";
 import { GET_ALL_AUTHORS } from "../../services";
+import { CREATE_AUTHOR } from "../../services";
 
 export const Authors = () => {
   const [authors, setAuthors] = useState([]);
@@ -16,6 +17,8 @@ export const Authors = () => {
     const filter = authors.filter((author) => {
       return author.name.includes(searchTerm);
     });
+    if (!searchTerm) return setFilteredAuthors(undefined);
+
     setFilteredAuthors(filter);
   };
 
@@ -43,9 +46,10 @@ export const Authors = () => {
       />
       <CreateShowcase
         textfields={AuthorTextfields}
-        title="Create new author"
+        title="author"
         illustration={man_one}
         refreshData={getRequest}
+        url={CREATE_AUTHOR}
       />
     </Container>
   );

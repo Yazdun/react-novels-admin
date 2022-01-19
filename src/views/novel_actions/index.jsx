@@ -7,31 +7,31 @@ import {
   RenderTextfields,
 } from "../../ui";
 import { DeleteModal } from "../../components";
-import { AuthorTextfields } from "../../utils";
+import { NovelTextfields } from "../../utils";
 import { useForm, FormProvider } from "react-hook-form";
 import { useGet, usePatch } from "../../hooks";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SiCloudsmith } from "react-icons/si";
-import { GET_SINGLE_AUTHOR, DELETE_AUTHOR, EDIT_AUTHOR } from "../../services";
-import { planet_one } from "../../assets";
+import { GET_SINGLE_NOVEL, DELETE_NOVEL, EDIT_NOVEL } from "../../services";
+import { book_two } from "../../assets";
 import { GiFeatheredWing } from "react-icons/gi";
 
-export const AuthorActions = () => {
+export const NovelActions = () => {
   const methods = useForm();
   const { id } = useParams();
 
-  const [name, setName] = useState(null);
+  const [title, setTitle] = useState(null);
 
-  const handleAuthor = (data) => {
-    const { name, birth, death, nationality, bio } = data.author;
-    setName(name);
+  const handleNovel = (data) => {
+    const { title, author, pages, publish, description } = data.novel;
+    setTitle(title);
     const inputs = [
-      { name: "name", value: name },
-      { name: "birth", value: birth.split("T")[0] },
-      { name: "death", value: death ? death.split("T")[0] : null },
-      { name: "nationality", value: nationality },
-      { name: "bio", value: bio },
+      { name: "title", value: title },
+      { name: "author", value: author },
+      { name: "pages", value: pages },
+      { name: "publish", value: publish },
+      { name: "description", value: description },
     ];
 
     inputs.map((input) => {
@@ -40,16 +40,14 @@ export const AuthorActions = () => {
     });
   };
 
-  const { patch, serverErrors, patchLoading } = usePatch(
-    EDIT_AUTHOR(id),
-    handleAuthor
-  );
-  const { getRequest, getLoading } = useGet(
-    GET_SINGLE_AUTHOR(id),
-    handleAuthor
+  const { patchRequest, serverErrors, patchLoading } = usePatch(
+    EDIT_NOVEL(id),
+    handleNovel
   );
 
-  const onSubmit = (data) => patch(data);
+  const { getRequest, getLoading } = useGet(GET_SINGLE_NOVEL(id), handleNovel);
+
+  const onSubmit = (data) => patchRequest(data);
 
   useEffect(() => {
     getRequest();
@@ -58,9 +56,9 @@ export const AuthorActions = () => {
   return (
     <Container customClass={s.customContainer}>
       <img
-        src={planet_one}
+        src={book_two}
         className={s.img}
-        alt="a girl standing with glasses"
+        alt="a yellow open book illustration"
       />
       <div className={s.form}>
         <div className={s.header}>
@@ -68,14 +66,14 @@ export const AuthorActions = () => {
             <>
               <Heading center bold capitalize small>
                 <GiFeatheredWing />
-                {name}
+                {title}
               </Heading>
 
               <DeleteModal
-                item="author"
-                question="Delete This Author ?"
+                item="novel"
+                question="Delete This Novel ?"
                 loading={getLoading}
-                url={DELETE_AUTHOR(id)}
+                url={DELETE_NOVEL(id)}
               />
             </>
           )}
@@ -83,16 +81,16 @@ export const AuthorActions = () => {
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <RenderTextfields
-              textfields={AuthorTextfields}
+              textfields={NovelTextfields}
               loading={getLoading || patchLoading}
-              loadingHeight={506}
+              loadingHeight={501}
               grid
             />
             {serverErrors && <RenderErrors errors={serverErrors} />}
             <Button
               active
               icon={<SiCloudsmith />}
-              text="update author"
+              text="update novel"
               disabled={getLoading || patchLoading}
               center
               customClass={s.btn}

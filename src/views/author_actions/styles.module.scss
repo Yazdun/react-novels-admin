@@ -28,25 +28,11 @@
   }
 }
 
-.danger {
-  //   background: rgba(255, 102, 102, 0.7);
-  border: 1px solid $clr--danger--secondary;
-  box-shadow: $shadow--one;
-  border-radius: $border--radius;
-  padding: toRem(20);
-  margin: $margin--high auto;
-  width: 100%;
-  // max-width: $max-width-tablet;
-  // align-self: flex-start;
-  //   background-color: red;
-}
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  // border: 1px solid black;
 }
 
 .btn {

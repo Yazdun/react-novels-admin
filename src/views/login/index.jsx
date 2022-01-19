@@ -5,7 +5,7 @@ import { useAuthActions, useAuthContext } from "../../context/auth";
 import { useHistory, Redirect } from "react-router-dom";
 import { useForm, FormProvider } from "react-hook-form";
 import { inputs } from "./inputs";
-import { man_and_computer } from "../../assets";
+import { man_two } from "../../assets";
 import { usePost } from "../../hooks/usePost";
 
 export const Login = () => {
@@ -28,7 +28,7 @@ export const Login = () => {
     <Container customClass={s.customContainer}>
       {isLogged && <Redirect to="/dashboard" />}
       <img
-        src={man_and_computer}
+        src={man_two}
         alt="a man sitting at his desk and working with a computer"
         className={s.img}
       />

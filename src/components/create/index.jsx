@@ -1,5 +1,5 @@
 import { useForm, FormProvider } from "react-hook-form";
-import { BsCheckLg } from "react-icons/bs";
+import { BsPlusLg, BsCheckLg } from "react-icons/bs";
 import {
   Showcase,
   Button,
@@ -12,13 +12,14 @@ import { usePost } from "../../hooks/usePost";
 import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
-import { CREATE_AUTHOR } from "../../services";
-
+import classnames from "classnames";
 export const CreateShowcase = ({
   textfields,
   title,
   illustration,
+  bigIllustration,
   refreshData,
+  url,
 }) => {
   const methods = useForm();
 
@@ -31,21 +32,25 @@ export const CreateShowcase = ({
     methods.reset();
     refreshData();
     setImage("");
-    showAlert("author has been submitted");
+    showAlert(`${title} has been submitted`);
   };
   const { postRequest, serverErrors, postLoading } = usePost(
-    CREATE_AUTHOR,
+    url,
     success_submit
   );
 
   return (
-    <Showcase contrast center text="add new author" icon={<BsCheckLg />}>
+    <Showcase contrast center text={`add new ${title}`} icon={<BsPlusLg />}>
       <div className={s.wrapper}>
-        <img src={illustration} alt={title} className={s.img} />
+        <img
+          src={illustration}
+          alt={title}
+          className={classnames(s.img, bigIllustration && s.bigIllustration)}
+        />
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)} className={s.form}>
             <Heading center bold>
-              {title}
+              Create new {title}
             </Heading>
             <RenderTextfields grid textfields={textfields} />
             <ImageUploader image={image} setImage={setImage} />
@@ -53,7 +58,7 @@ export const CreateShowcase = ({
             <Button
               active
               center
-              text="submit author"
+              text={`submit ${title}`}
               icon={<BsCheckLg />}
               disabled={postLoading}
             />

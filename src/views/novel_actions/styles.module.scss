@@ -1,0 +1,40 @@
+@import "../../scss/essentials";
+
+.customContainer {
+  @include breakpoint-up(laptop) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.img {
+  display: none;
+  @include breakpoint-up(laptop) {
+    display: block;
+    position: sticky;
+    top: toRem(100);
+    width: 30%;
+    max-width: toRem(300);
+    align-self: flex-end;
+  }
+}
+
+.form {
+  width: 100%;
+  margin: $margin--mid 0;
+
+  @include breakpoint-up(laptop) {
+    width: 70%;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btn {
+  margin-bottom: 0;
+}

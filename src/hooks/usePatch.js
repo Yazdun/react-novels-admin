@@ -7,7 +7,7 @@ export const usePatch = (url, success_function) => {
   const [patchLoading, setPatchLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const patch = async (values) => {
+  const patchRequest = async (values) => {
     setPatchLoading(true);
     errorHandler(undefined, undefined);
 
@@ -30,5 +30,5 @@ export const usePatch = (url, success_function) => {
     }
   };
 
-  return { patch, serverErrors, patchLoading };
+  return { patchRequest, serverErrors, patchLoading };
 };

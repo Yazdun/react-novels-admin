@@ -1,7 +1,7 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
 import { Container, Heading, Typography } from "../../ui";
-import { error_illustration, lightning_cloud } from "../../assets";
+import { ghost_one, cloud_one } from "../../assets";
 
 export const Page404 = () => {
   return (
@@ -9,7 +9,7 @@ export const Page404 = () => {
       <div className={s.animate}>
         <img
           className={s.img}
-          src={error_illustration}
+          src={ghost_one}
           alt="sad ghost illustration which represents error page"
         />
 
@@ -30,7 +30,7 @@ export const ErrorPage = ({ title, message }) => {
       <div className={s.animate}>
         <img
           className={s.img}
-          src={lightning_cloud}
+          src={cloud_one}
           alt="lightening cloud illustration which represents error page"
         />
 
