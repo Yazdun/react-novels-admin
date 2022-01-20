@@ -52,7 +52,7 @@ export const Novels = () => {
         illustration={book_one}
         refreshData={getRequest}
         url={CREATE_NOVEL}
-        bigIllustration
+        largeImg
       />
     </Container>
   );

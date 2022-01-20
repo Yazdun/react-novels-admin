@@ -5,6 +5,7 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import { useDelete } from "../../hooks";
 import { useHistory } from "react-router-dom";
 import { useAlertContext } from "../../context/alert";
+import PropTypes from "prop-types";
 
 export const DeleteModal = ({ item, question, url, loading }) => {
   const history = useHistory();
@@ -26,8 +27,16 @@ export const DeleteModal = ({ item, question, url, loading }) => {
           icon={<AiTwotoneDelete />}
           onClick={deleteRequest}
           disabled={deleteLoading}
+          customClass={s.btn}
         />
       </div>
     </Modal>
   );
+};
+
+DeleteModal.propTypes = {
+  item: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
 };

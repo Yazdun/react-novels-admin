@@ -12,4 +12,5 @@ export const Loading = ({ height, count, customClassname }) => {
 Loading.propTypes = {
   height: PropTypes.number,
   count: PropTypes.number,
+  customClassname: PropTypes.string,
 };

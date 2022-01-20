@@ -13,11 +13,13 @@ import { useAlertContext } from "../../context/alert";
 import s from "./styles.module.scss";
 import { useState } from "react";
 import classnames from "classnames";
+import PropTypes from "prop-types";
+
 export const CreateShowcase = ({
   textfields,
   title,
   illustration,
-  bigIllustration,
+  largeImg,
   refreshData,
   url,
 }) => {
@@ -45,7 +47,7 @@ export const CreateShowcase = ({
         <img
           src={illustration}
           alt={title}
-          className={classnames(s.img, bigIllustration && s.bigIllustration)}
+          className={classnames(s.img, largeImg && s.largeImg)}
         />
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)} className={s.form}>
@@ -67,4 +69,13 @@ export const CreateShowcase = ({
       </div>
     </Showcase>
   );
+};
+
+CreateShowcase.propTypes = {
+  textfields: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  illustration: PropTypes.string,
+  largeImg: PropTypes.bool,
+  refreshData: PropTypes.func,
+  url: PropTypes.string.isRequired,
 };

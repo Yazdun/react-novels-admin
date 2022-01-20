@@ -1,5 +1,6 @@
 import s from "./styles.module.scss";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 export const Input = ({ type, id, name, placeholder, label, onChange }) => {
   return (
@@ -18,4 +19,14 @@ export const Input = ({ type, id, name, placeholder, label, onChange }) => {
       </label>
     </div>
   );
+};
+
+Input.propTypes = {
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  multiline: PropTypes.bool,
+  onChange: PropTypes.func,
 };
