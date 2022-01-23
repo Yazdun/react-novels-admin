@@ -5,3 +5,4 @@ export { Loading } from "./loading";
 export { ImageUploader } from "./image_uploader";
 export { CreateShowcase } from "./create";
 export { DeleteModal } from "./delete";
+export { Review } from "./review";

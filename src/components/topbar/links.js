@@ -1,5 +1,5 @@
 import { MdSpaceDashboard } from "react-icons/md";
-import { RiQuillPenFill } from "react-icons/ri";
+import { RiQuillPenFill, RiMessage3Fill } from "react-icons/ri";
 import { GiWhiteBook } from "react-icons/gi";
 import { FaUserAstronaut } from "react-icons/fa";
 
@@ -27,5 +27,11 @@ export const links = [
     desc: "manage authors",
     url: "/authors",
     icon: <RiQuillPenFill />,
+  },
+  {
+    text: "reviews",
+    desc: "manage reviews",
+    url: "/reviews",
+    icon: <RiMessage3Fill />,
   },
 ];

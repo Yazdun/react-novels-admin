@@ -19,7 +19,7 @@ export const Login = () => {
     history.push("/dashboard");
   };
 
-  const { execute, serverErrors, loading } = usePost(
+  const { postRequest, serverErrors, postLoading } = usePost(
     "/admin/authentication/login",
     handleToken
   );
@@ -35,7 +35,7 @@ export const Login = () => {
       <FormProvider {...methods}>
         <form
           className={s.form}
-          onSubmit={methods.handleSubmit((data) => execute(data))}
+          onSubmit={methods.handleSubmit((data) => postRequest(data))}
         >
           <RenderTextfields textfields={inputs} />
           {serverErrors && <RenderErrors errors={serverErrors} />}
@@ -43,7 +43,7 @@ export const Login = () => {
             success
             text="login"
             icon={<MdLogin />}
-            disabled={loading}
+            disabled={postLoading}
             center
           />
         </form>

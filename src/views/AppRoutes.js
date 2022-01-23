@@ -7,6 +7,7 @@ import {
   AuthorActions,
   Page404,
   NovelActions,
+  Reviews,
 } from ".";
 import { Redirect, Route } from "react-router-dom";
 import { useAuthContext } from "../context/auth";
@@ -34,6 +35,12 @@ export const routes = [
     exact: true,
     path: "/authors",
     component: Authors,
+    private: true,
+  },
+  {
+    exact: true,
+    path: "/reviews",
+    component: Reviews,
     private: true,
   },
   {
