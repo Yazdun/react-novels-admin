@@ -10,3 +10,5 @@ export const CREATE_NOVEL = "/admin/novel/create";
 export const GET_SINGLE_NOVEL = (id) => `/admin/novel/find/${id}`;
 export const EDIT_NOVEL = (id) => `/admin/novel/update/${id}`;
 export const DELETE_NOVEL = (id) => `/admin/novel/delete/${id}`;
+// reviews
+export const GET_ALL_REVIEWS = "/admin/review";

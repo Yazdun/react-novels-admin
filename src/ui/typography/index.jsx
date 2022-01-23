@@ -13,6 +13,7 @@ export const Typography = ({
   danger,
   success,
   active,
+  warn,
   center,
 }) => {
   return (
@@ -28,6 +29,7 @@ export const Typography = ({
         danger && s.danger,
         success && s.success,
         active && s.active,
+        warn && s.warn,
         center && s.center
       )}
     >
@@ -47,5 +49,6 @@ Typography.propTypes = {
   danger: PropTypes.bool,
   success: PropTypes.bool,
   active: PropTypes.bool,
+  warn: PropTypes.bool,
   center: PropTypes.bool,
 };

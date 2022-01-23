@@ -25,6 +25,20 @@
   
 }
 
+.btns {
+  display: flex;
+  width: 100%;
+  // max-width: toRem(150);
+  align-items: center;
+  margin: $margin--mid 0;
+  justify-content: space-between;
+}
+
+.btn {
+  margin-left: toRem(10);
+}
+
+
 .header {
   padding: toRem(10) toRem(20);
   border-bottom: 1px solid $clr--border;
