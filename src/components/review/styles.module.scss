@@ -5,24 +5,24 @@
   background-color: $clr--bg--secondary;
   border: 1px solid $clr--border;
   border-radius: $border--radius;
+  margin-bottom: $margin--mid;
 
   ul {
     margin-left: toRem(10);
-  
+
     li {
       margin: toRem(5) 0;
       font-size: 0.9rem;
       font-weight: bold;
       text-transform: capitalize;
     }
-  
+
     .sub {
       font-weight: normal;
       color: $clr--txt--secondary;
       text-transform: lowercase;
     }
   }
-  
 }
 
 .btns {
@@ -38,7 +38,6 @@
   margin-left: toRem(10);
 }
 
-
 .header {
   padding: toRem(10) toRem(20);
   border-bottom: 1px solid $clr--border;
@@ -50,37 +49,19 @@
 .ref {
   padding: toRem(10) toRem(20);
   border-bottom: 1px solid $clr--border;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .content {
   padding: toRem(10) toRem(20);
-text-align: justify;
+  text-align: justify;
 }
 
-.user {
-  display: flex;
-  align-items: center;
-}
-
-.profile {
-  width: toRem(50);
-  height: toRem(50);
-  object-fit: fill;
-  border-radius: 50%;
-  border: 1px solid $clr--border;
-}
-
-.novelCover {
-  width: toRem(50);
-  height: toRem(70);
+.status {
+  // background-color: $clr--bg--primary;
+  padding: toRem(4) toRem(8);
+  background-color: #eeeeee;
   border-radius: $border--radius;
-  object-fit: cover;
-
 }
-
-.novel {
-    display: flex;
-    align-items: center;
-}
-

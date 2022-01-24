@@ -1,11 +1,18 @@
 import s from "./styles.module.scss";
-import { GrClose } from "react-icons/gr";
-import { placeholder } from "../../assets";
-import ReactTimeAgo from "react-time-ago";
-import { Button, Typography } from "../../ui";
+
+import { Button, Typography, Spinner } from "../../ui";
 import { AiOutlineCheckCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useState } from "react";
 import { DeleteModal } from "..";
+import {
+  APPROVE_REVIEW,
+  DISAPPROVE_REVIEW,
+  DELETE_REVIEW,
+} from "../../services";
+import { usePatch } from "../../hooks";
+import { User } from "./user";
+import { Novel } from "./novel";
+import { Rating } from "./rating";
 
 const initial = {
   createdBy: {},
@@ -13,7 +20,7 @@ const initial = {
   content: "",
   rate: 0,
   isApproved: false,
-  isDispproved: false,
+  isDisapproved: false,
   isPending: false,
   createdAt: "2022-01-22T17:38:22.900Z",
 };
@@ -21,15 +28,21 @@ const initial = {
 export const Review = ({ review }) => {
   const [data, setData] = useState(review ? review : initial);
   const {
+    _id,
     createdBy,
     novelRef,
     content,
     rate,
     isApproved,
-    isDispproved,
+    isDisapproved,
     isPending,
     createdAt,
   } = data;
+
+  const success = (data) => setData(data.updatedReview);
+
+  const { patchRequest, patchLoading } = usePatch();
+
   return (
     <div className={s.wrapper}>
       <div className={s.header}>
@@ -37,14 +50,15 @@ export const Review = ({ review }) => {
         <DeleteModal
           item="review"
           question="Delete This Review ?"
-          // loading={getLoading}
-          url={""}
+          redirect="/dashboard"
+          url={DELETE_REVIEW(_id)}
         />
       </div>
       <div className={s.ref}>
         <Novel novel={novelRef} />
       </div>
       <div className={s.content}>
+        <Rating rate={rate} />
         <Typography small>{content}</Typography>
         <div className={s.btns}>
           <div>
@@ -52,64 +66,29 @@ export const Review = ({ review }) => {
               success
               icon={<AiOutlineCheckCircle />}
               disabled={isApproved}
+              onClick={() => patchRequest(APPROVE_REVIEW(_id), null, success)}
             />
             <Button
               danger
               icon={<AiOutlineMinusCircle />}
-              disabled={isDispproved}
+              disabled={isDisapproved}
               customClass={s.btn}
+              onClick={() =>
+                patchRequest(DISAPPROVE_REVIEW(_id), null, success)
+              }
             />
           </div>
-
-          <Typography
-            small
-            bold
-            warn={isPending}
-            danger={isDispproved}
-            success={isApproved}
-            customClass={s.status}
-          >
-            {isPending && "pending ..."}
-            {isApproved && "approved"}
-            {isDispproved && "disapproved"}
-          </Typography>
+          {patchLoading ? (
+            <Spinner dark small />
+          ) : (
+            <Typography small bold customClass={s.status}>
+              {isPending && "pending ..."}
+              {isApproved && "approved"}
+              {isDisapproved && "disapproved"}
+            </Typography>
+          )}
         </div>
       </div>
-    </div>
-  );
-};
-
-const User = ({ user, date }) => {
-  return (
-    <div className={s.user}>
-      <img
-        src={user.image ? user.image : placeholder}
-        alt={user}
-        className={s.profile}
-      />
-      <ul>
-        <li>{user.username}</li>
-        <li className={s.sub}>
-          <ReactTimeAgo date={date} locale="en-US" />
-        </li>
-      </ul>
-    </div>
-  );
-};
-
-const Novel = ({ novel }) => {
-  const { title, author, image } = novel;
-  return (
-    <div className={s.novel}>
-      <img
-        src={image ? image : placeholder}
-        alt={title}
-        className={s.novelCover}
-      />
-      <ul>
-        <li>{title}</li>
-        <li className={s.sub}>{author}</li>
-      </ul>
     </div>
   );
 };

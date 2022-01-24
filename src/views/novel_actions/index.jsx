@@ -40,14 +40,11 @@ export const NovelActions = () => {
     });
   };
 
-  const { patchRequest, serverErrors, patchLoading } = usePatch(
-    EDIT_NOVEL(id),
-    handleNovel
-  );
+  const { patchRequest, serverErrors, patchLoading } = usePatch();
 
   const { getRequest, getLoading } = useGet(GET_SINGLE_NOVEL(id), handleNovel);
 
-  const onSubmit = (data) => patchRequest(data);
+  const onSubmit = (data) => patchRequest(EDIT_NOVEL(id), data, handleNovel);
 
   useEffect(() => {
     getRequest();
@@ -74,6 +71,7 @@ export const NovelActions = () => {
                 question="Delete This Novel ?"
                 loading={getLoading}
                 url={DELETE_NOVEL(id)}
+                redirect={"/novels"}
               />
             </>
           )}

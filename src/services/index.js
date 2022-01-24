@@ -12,3 +12,6 @@ export const EDIT_NOVEL = (id) => `/admin/novel/update/${id}`;
 export const DELETE_NOVEL = (id) => `/admin/novel/delete/${id}`;
 // reviews
 export const GET_ALL_REVIEWS = "/admin/review";
+export const APPROVE_REVIEW = (id) => `/admin/review/approve/${id}`;
+export const DISAPPROVE_REVIEW = (id) => `/admin/review/disapprove/${id}`;
+export const DELETE_REVIEW = (id) => `/admin/review/delete/${id}`;

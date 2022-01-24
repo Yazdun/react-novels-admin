@@ -7,12 +7,12 @@ import { useHistory } from "react-router-dom";
 import { useAlertContext } from "../../context/alert";
 import PropTypes from "prop-types";
 
-export const DeleteModal = ({ item, question, url, loading }) => {
+export const DeleteModal = ({ item, question, url, loading, redirect }) => {
   const history = useHistory();
   const { showAlert } = useAlertContext();
 
   const afterDelete = () => {
-    history.push(`/${item}s`);
+    history.push(redirect);
     showAlert(`${item} has been deleted`);
   };
   const { deleteRequest, deleteLoading } = useDelete(url, afterDelete);

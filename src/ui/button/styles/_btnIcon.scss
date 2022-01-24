@@ -24,4 +24,12 @@
   svg {
     font-size: 2.3rem;
   }
+
+  &:disabled {
+    opacity: 0.2;
+
+    &:hover {
+      transform: none;
+    }
+  }
 }

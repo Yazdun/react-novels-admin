@@ -3,11 +3,11 @@ import axios from "axios";
 import "../axios";
 import { useErrorStatus } from "../context/errors";
 
-export const usePatch = (url, success_function) => {
+export const usePatch = () => {
   const [patchLoading, setPatchLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const patchRequest = async (values) => {
+  const patchRequest = async (url, values, success_function) => {
     setPatchLoading(true);
     errorHandler(undefined, undefined);
 

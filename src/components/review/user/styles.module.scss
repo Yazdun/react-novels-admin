@@ -1,0 +1,31 @@
+@import "../../../scss/essentials";
+
+.user {
+  display: flex;
+  align-items: center;
+
+  ul {
+    margin-left: toRem(10);
+
+    li {
+      margin: toRem(5) 0;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .sub {
+      font-weight: normal;
+      color: $clr--txt--secondary;
+      text-transform: lowercase;
+    }
+  }
+}
+
+.profile {
+  width: toRem(50);
+  height: toRem(50);
+  object-fit: fill;
+  border-radius: 50%;
+  border: 1px solid $clr--border;
+}

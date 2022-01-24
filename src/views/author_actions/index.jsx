@@ -40,17 +40,14 @@ export const AuthorActions = () => {
     });
   };
 
-  const { patchRequest, serverErrors, patchLoading } = usePatch(
-    EDIT_AUTHOR(id),
-    handleAuthor
-  );
+  const { patchRequest, serverErrors, patchLoading } = usePatch();
 
   const { getRequest, getLoading } = useGet(
     GET_SINGLE_AUTHOR(id),
     handleAuthor
   );
 
-  const onSubmit = (data) => patchRequest(data);
+  const onSubmit = (data) => patchRequest(EDIT_AUTHOR(id), data, handleAuthor);
 
   useEffect(() => {
     getRequest();
@@ -77,6 +74,7 @@ export const AuthorActions = () => {
                 question="Delete This Author ?"
                 loading={getLoading}
                 url={DELETE_AUTHOR(id)}
+                redirect={"/authors"}
               />
             </>
           )}
