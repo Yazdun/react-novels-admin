@@ -1,2 +1,8 @@
 @import "../../../scss/essentials";
 
+.rating {
+  margin: $margin--low 0;
+  svg {
+    margin-right: toRem(5);
+  }
+}

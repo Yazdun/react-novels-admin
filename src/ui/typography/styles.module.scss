@@ -3,6 +3,8 @@
 .typography {
   line-height: 2rem;
   font-size: 1.3rem;
+  display: flex;
+  align-items: center;
 }
 
 .big {
@@ -40,4 +42,12 @@
 
 .bold {
   font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

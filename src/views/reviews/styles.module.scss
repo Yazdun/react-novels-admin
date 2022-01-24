@@ -1,0 +1,37 @@
+@import "../../scss/essentials";
+
+.customContainer {
+  @include breakpoint-up(laptop) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.items {
+  @include breakpoint-up(laptop) {
+    width: 20%;
+    position: sticky;
+    align-self: flex-start;
+    top: toRem(81);
+  }
+}
+
+.buttons {
+  @include breakpoint-up(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    //   grid-gap: toRem(20);
+    grid-row-gap: toRem(10);
+    grid-column-gap: toRem(20);
+  }
+  @include breakpoint-up(laptop) {
+    display: block;
+  }
+}
+
+.reviews {
+  @include breakpoint-up(laptop) {
+    width: 77%;
+  }
+}
