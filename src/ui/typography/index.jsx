@@ -17,6 +17,7 @@ export const Typography = ({
   center,
   uppercase,
   capitalize,
+  justify,
 }) => {
   return (
     <p
@@ -34,7 +35,8 @@ export const Typography = ({
         warn && s.warn,
         center && s.center,
         uppercase && s.uppercase,
-        capitalize && s.capitalize
+        capitalize && s.capitalize,
+        justify && s.justify
       )}
     >
       {children}

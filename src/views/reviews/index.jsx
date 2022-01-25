@@ -1,62 +1,65 @@
-import { Review } from "../../components";
-import { Container, Input } from "../../ui";
+import { Review, Loading } from "../../components";
+import { Container, Typography } from "../../ui";
 import { useGet } from "../../hooks";
-import { GET_ALL_REVIEWS } from "../../services";
+import { GET_ALL_REVIEWS, GET_REVIEWS_BY_STATUS } from "../../services";
 import { useEffect, useState } from "react";
 import s from "./styles.module.scss";
 import { RadioGroup, RadioButton } from "react-radio-buttons";
+import { buttons } from "./data";
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [filtered, setFiltered] = useState(undefined);
   const success = (data) => setReviews(data.reviews);
-  const { getRequest, serverErrors, getLoading } = useGet(
-    GET_ALL_REVIEWS,
-    success
-  );
+  const { getRequest, serverErrors, getLoading } = useGet();
 
   useEffect(() => {
-    getRequest();
+    getRequest(GET_ALL_REVIEWS, success);
   }, []);
 
-  const inputs = [
-    {
-      value: "all",
-    },
-    {
-      value: "pending",
-    },
-    {
-      value: "approved",
-    },
-    {
-      value: "disapproved",
-    },
-  ];
   return (
     <Container customClass={s.customContainer}>
       <div className={s.items}>
-        <RadioGroup className={s.buttons}>
-          {inputs.map((input) => {
+        <RadioGroup
+          onChange={(value) =>
+            getRequest(GET_REVIEWS_BY_STATUS(value), success)
+          }
+          className={s.buttons}
+        >
+          {buttons.map((button) => {
             return (
               <RadioButton
                 iconSize={20}
                 iconInnerSize={10}
-                value={input.value}
+                value={button.value}
                 pointColor="#4a4e69"
                 rootColor="#ced4da"
               >
-                {input.value}
+                {button.text}
               </RadioButton>
             );
           })}
         </RadioGroup>
       </div>
       <div className={s.reviews}>
-        {reviews.map((review) => {
-          return <Review review={review} />;
-        })}
+        {getLoading ? (
+          <Loading height={263} count={4} customClassname={s.loading} />
+        ) : (
+          <RenderReviews reviews={reviews} />
+        )}
       </div>
     </Container>
+  );
+};
+
+const RenderReviews = ({ reviews }) => {
+  if (reviews.length < 1) {
+    return <Typography bold>Found no reviews</Typography>;
+  }
+  return (
+    <>
+      {reviews.map((review, index) => {
+        return <Review key={index} review={review} />;
+      })}
+    </>
   );
 };

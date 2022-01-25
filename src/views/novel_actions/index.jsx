@@ -42,12 +42,12 @@ export const NovelActions = () => {
 
   const { patchRequest, serverErrors, patchLoading } = usePatch();
 
-  const { getRequest, getLoading } = useGet(GET_SINGLE_NOVEL(id), handleNovel);
+  const { getRequest, getLoading } = useGet();
 
   const onSubmit = (data) => patchRequest(EDIT_NOVEL(id), data, handleNovel);
 
   useEffect(() => {
-    getRequest();
+    getRequest(GET_SINGLE_NOVEL(id), handleNovel);
   }, [id]);
 
   return (

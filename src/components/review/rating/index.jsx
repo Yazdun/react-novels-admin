@@ -14,12 +14,11 @@ export const Rating = ({ rate }) => {
         danger={rate === 1}
         capitalize
       >
-        {rate === 1 && <AiFillDislike />}
-        {rate === 2 && <BsFillBookmarkCheckFill />}
-        {rate === 3 && <AiFillLike />}
-        {rate === 1 && "not recommended"}
-        {rate === 2 && "worth reading"}
-        {rate === 3 && "recommended"}
+        {rate === 1 && "awful"}
+        {rate === 2 && "not bad"}
+        {rate === 3 && "good"}
+        {rate === 4 && "great"}
+        {rate === 5 && "masterpiece"}
       </Typography>
     </div>
   );

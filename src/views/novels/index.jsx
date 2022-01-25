@@ -24,10 +24,10 @@ export const Novels = () => {
     setFilteredNovels(searchedNovels);
   };
 
-  const { getRequest, getLoading } = useGet(GET_ALL_NOVELS, handleNovels);
+  const { getRequest, getLoading } = useGet();
 
   useEffect(() => {
-    getRequest();
+    getRequest(GET_ALL_NOVELS, handleNovels);
   }, []);
   return (
     <Container>
@@ -50,7 +50,7 @@ export const Novels = () => {
         textfields={NovelTextfields}
         title="novel"
         illustration={book_one}
-        refreshData={getRequest}
+        refreshData={() => getRequest(GET_ALL_NOVELS, handleNovels)}
         url={CREATE_NOVEL}
         largeImg
       />

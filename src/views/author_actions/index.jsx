@@ -42,15 +42,12 @@ export const AuthorActions = () => {
 
   const { patchRequest, serverErrors, patchLoading } = usePatch();
 
-  const { getRequest, getLoading } = useGet(
-    GET_SINGLE_AUTHOR(id),
-    handleAuthor
-  );
+  const { getRequest, getLoading } = useGet();
 
   const onSubmit = (data) => patchRequest(EDIT_AUTHOR(id), data, handleAuthor);
 
   useEffect(() => {
-    getRequest();
+    getRequest(GET_SINGLE_AUTHOR(id), handleAuthor);
   }, [id]);
 
   return (

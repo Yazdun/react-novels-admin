@@ -3,11 +3,11 @@ import axios from "axios";
 import "../axios";
 import { useErrorStatus } from "../context/errors";
 
-export const useGet = (url, success_function) => {
+export const useGet = () => {
   const [getLoading, setGetLoading] = useState(false);
   const { errorHandler, serverErrors } = useErrorStatus();
 
-  const getRequest = async () => {
+  const getRequest = async (url, success_function) => {
     setGetLoading(true);
     errorHandler(undefined, undefined);
 
