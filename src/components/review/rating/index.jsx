@@ -15,7 +15,7 @@ export const Rating = ({ rate }) => {
         capitalize
       >
         {rate === 1 && "awful"}
-        {rate === 2 && "not bad"}
+        {rate === 2 && "meh"}
         {rate === 3 && "good"}
         {rate === 4 && "great"}
         {rate === 5 && "masterpiece"}
