@@ -6,6 +6,5 @@ export { Reviews } from "./reviews";
 export { Page404, ErrorPage } from "./errors";
 export { AuthorActions } from "./author_actions";
 export { NovelActions } from "./novel_actions";
+export { Users } from "./users";
 export { routes, PrivateRoute } from "./AppRoutes";
-
-// export {  } from "./";

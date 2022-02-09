@@ -7,3 +7,6 @@ export { CreateShowcase } from "./create";
 export { DeleteModal } from "./delete";
 export { Review } from "./review";
 export { Widgets } from "./dashboard_widgets";
+export { Chart } from "./chart";
+export { UserChart } from "./user_chart";
+export { ReviewChart } from "./review_chart";
