@@ -17,3 +17,5 @@ export const GET_REVIEWS_BY_STATUS = (query) =>
 export const APPROVE_REVIEW = (id) => `/admin/review/approve/${id}`;
 export const DISAPPROVE_REVIEW = (id) => `/admin/review/disapprove/${id}`;
 export const DELETE_REVIEW = (id) => `/admin/review/delete/${id}`;
+// states
+export const GET_DASHBOARD_STATS = "/admin/stats";

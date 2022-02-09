@@ -6,3 +6,4 @@ export { ImageUploader } from "./image_uploader";
 export { CreateShowcase } from "./create";
 export { DeleteModal } from "./delete";
 export { Review } from "./review";
+export { Widgets } from "./dashboard_widgets";

@@ -6,14 +6,7 @@ import { BsFillBookmarkCheckFill } from "react-icons/bs";
 export const Rating = ({ rate }) => {
   return (
     <div className={s.rating}>
-      <Typography
-        small
-        bold
-        success={rate === 3}
-        contrast={rate === 2}
-        danger={rate === 1}
-        capitalize
-      >
+      <Typography small bold capitalize>
         {rate === 1 && "awful"}
         {rate === 2 && "meh"}
         {rate === 3 && "good"}

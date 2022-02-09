@@ -27,9 +27,11 @@ export const RenderTypography = ({ content }) => {
       <Typography small customclass={s.text}>
         {content[0]}
       </Typography>
-      <button className={s.btn} onClick={() => setReadmore(true)}>
-        Read more ...
-      </button>
+      {content.length > 1 && (
+        <button className={s.btn} onClick={() => setReadmore(true)}>
+          Read more ...
+        </button>
+      )}
     </>
   );
 };

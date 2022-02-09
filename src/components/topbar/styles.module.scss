@@ -4,9 +4,9 @@
   position: sticky;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid $clr--border;
   z-index: $zindex--navbar;
-  background-color: $clr--bg--secondary;
+  background-color: $clr--bg--primary;
+  box-shadow: $shadow--four;
 }
 
 .customContainer {
@@ -17,7 +17,7 @@
 }
 
 .btn {
-  color: $clr--danger--secondary;
+  color: $clr--danger--primary;
   transition: 0.5s;
   svg {
     font-size: 2rem;
