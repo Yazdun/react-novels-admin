@@ -1,0 +1,15 @@
+@import "../../scss/essentials";
+
+.text {
+  margin: $margin--mid 0;
+  // text-align: justify;
+}
+
+.btn {
+  font-weight: 600;
+  margin: $margin--mid 0;
+  color: $clr--txt;
+  padding: $padding--low;
+  border: 1px solid $clr--txt;
+  border-radius: $border--radius;
+}

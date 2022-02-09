@@ -1,7 +1,6 @@
 import { MdSpaceDashboard } from "react-icons/md";
 import { RiQuillPenFill, RiMessage3Fill } from "react-icons/ri";
 import { GiWhiteBook } from "react-icons/gi";
-import { FaUserAstronaut } from "react-icons/fa";
 
 export const links = [
   {
@@ -9,12 +8,6 @@ export const links = [
     desc: "dashboard",
     url: "/dashboard",
     icon: <MdSpaceDashboard />,
-  },
-  {
-    text: "users",
-    desc: "manage users",
-    url: "/users",
-    icon: <FaUserAstronaut />,
   },
   {
     text: "novels",

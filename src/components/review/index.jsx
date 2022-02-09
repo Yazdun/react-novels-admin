@@ -1,6 +1,6 @@
 import s from "./styles.module.scss";
 
-import { Button, Typography, Spinner } from "../../ui";
+import { Button, Typography, Spinner, RenderTypography } from "../../ui";
 import { AiOutlineCheckCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useState } from "react";
 import { DeleteModal } from "..";
@@ -59,7 +59,7 @@ export const Review = ({ review }) => {
       </div>
       <div className={s.content}>
         <Rating rate={rate} />
-        <Typography small>{content}</Typography>
+        <RenderTypography content={content.split("\n")} />
         <div className={s.btns}>
           <div>
             <Button

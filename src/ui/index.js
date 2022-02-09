@@ -9,3 +9,4 @@ export { Spinner } from "./spinner";
 export { Input } from "./input";
 export { Showcase } from "../ui/showcase";
 export { Modal } from "./modal";
+export { RenderTypography } from "./render_typography";

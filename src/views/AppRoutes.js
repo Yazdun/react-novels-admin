@@ -3,7 +3,6 @@ import {
   Dashboard,
   Novels,
   Login,
-  Users,
   AuthorActions,
   Page404,
   NovelActions,
@@ -17,12 +16,6 @@ export const routes = [
     exact: true,
     path: "/dashboard",
     component: Dashboard,
-    private: true,
-  },
-  {
-    exact: true,
-    path: "/users",
-    component: Users,
     private: true,
   },
   {
