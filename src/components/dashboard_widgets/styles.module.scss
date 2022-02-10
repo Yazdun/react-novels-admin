@@ -1,6 +1,7 @@
 @import "../../scss/essentials";
 
 .widgets {
+  margin: $margin--low 0;
   @include breakpoint-up(tablet) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

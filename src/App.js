@@ -1,7 +1,7 @@
 import "./scss/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { PrivateRoute, routes } from "./views";
-import { Alert, Topbar } from "./components";
+import { Alert, BackToTop, Topbar } from "./components";
 import { ErrorHandler } from "./context/errors";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
     <>
       <Topbar />
       <ErrorHandler>
+        <BackToTop />
         <Alert />
         <Switch>
           {routes.map((route, item) =>

@@ -10,3 +10,4 @@ export { Widgets } from "./dashboard_widgets";
 export { Chart } from "./chart";
 export { UserChart } from "./user_chart";
 export { ReviewChart } from "./review_chart";
+export { BackToTop } from "./BackToTop";

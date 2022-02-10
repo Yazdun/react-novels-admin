@@ -22,7 +22,7 @@ export const Widgets = () => {
   }, []);
 
   if (getLoading) {
-    return <Loading height={130} />;
+    return <Loading height={138} />;
   }
   return (
     <div className={s.widgets}>
